@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exception Report Archive</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+    --shadow: 0 30px 80px -30px rgba(0,0,0,0.7);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  a{ color:inherit; }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 28px; }
+
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+
+  /* ---------- header ---------- */
+  header{ border-bottom:1px solid var(--line); padding:22px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand{ display:flex; align-items:baseline; gap:10px; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); }
+  .brand-mark span{ color:var(--amber); }
+  .brand-tag{ font-size:12.5px; color:var(--muted); font-family:'IBM Plex Mono',monospace; letter-spacing:.02em; }
+
+  /* ---------- masthead ---------- */
+  .masthead{ padding:64px 0 40px; border-bottom:1px solid var(--line); }
+  .file-tab{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--line-strong);
+    background:var(--panel);
+    padding:6px 12px 6px 10px;
+    border-radius:3px;
+    margin-bottom:24px;
+  }
+  .file-tab .dot{ width:7px; height:7px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 3px rgba(77,179,168,0.18); }
+  .file-tab span{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.08em; color:var(--ink-dim); text-transform:uppercase; }
+
+  .masthead h1{ font-size:clamp(34px, 4.6vw, 52px); line-height:1.05; color:var(--ink); margin-bottom:18px; }
+  .masthead h1 em{ font-style:italic; color:var(--amber); }
+  .masthead-sub{ font-size:17px; color:var(--ink-dim); max-width:58ch; margin-bottom:34px; }
+
+  .meta-strip{ display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .meta-item{ flex:1 1 160px; padding:14px 18px 14px 0; border-right:1px solid var(--line); }
+  .meta-item:last-child{ border-right:none; }
+  .meta-item .k{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+  .meta-item .v{ font-size:14.5px; color:var(--ink); font-weight:500; font-variant-numeric:tabular-nums; }
+
+  /* ---------- subscribe strip ---------- */
+  .sub-strip{
+    margin-top:28px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    border:1px solid var(--line-strong); border-radius:6px;
+    padding:14px 20px; background:var(--panel);
+  }
+  .sub-strip .txt{ font-size:14px; color:var(--ink-dim); }
+  .sub-strip .txt b{ color:var(--ink); }
+  .sub-strip a.link-btn{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:9px 16px; border-radius:4px;
+    text-decoration:none; white-space:nowrap; font-weight:600;
+  }
+
+  /* ---------- archive list ---------- */
+  section.archive{ padding:44px 0 80px; }
+  .section-head{ margin-bottom:18px; }
+  .section-head p{ font-size:14.5px; color:var(--muted); margin:8px 0 0; max-width:60ch; }
+
+  .issue-list{ border-top:1px solid var(--line); }
+  .issue{ display:grid; grid-template-columns:96px 1fr; gap:24px; padding:30px 0; border-bottom:1px solid var(--line); }
+  @media (max-width:640px){ .issue{ grid-template-columns:1fr; gap:10px; } }
+
+  .issue .side{ display:flex; flex-direction:column; gap:10px; }
+  .issue .idx{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.06em; }
+  .issue .date{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); }
+  .pillar-pill{
+    display:inline-block; align-self:flex-start;
+    font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase;
+    padding:3px 7px; border-radius:3px; white-space:nowrap;
+  }
+  .tag-a{ background:rgba(226,161,58,0.14); color:var(--amber); }
+  .tag-b{ background:rgba(77,179,168,0.14); color:var(--teal); }
+  .tag-c{ background:rgba(198,91,78,0.14); color:#e8998d; }
+
+  .issue h3{ font-size:21px; line-height:1.28; color:var(--ink); margin-bottom:8px; }
+  .issue .hook{ font-size:15px; color:var(--ink-dim); margin:0 0 12px; max-width:62ch; }
+  .issue .read{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; color:var(--amber); text-decoration:none; }
+  .issue .read:hover{ text-decoration:underline; }
+  .issue .sent-note{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--muted); letter-spacing:.02em; }
+
+  /* ---------- empty state ---------- */
+  .empty{
+    border:1px dashed var(--line-strong); border-radius:6px;
+    padding:44px 30px; text-align:center; margin-top:2px;
+  }
+  .empty .glyph{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px; }
+  .empty h3{ font-size:22px; color:var(--ink); margin-bottom:10px; }
+  .empty p{ font-size:14.5px; color:var(--ink-dim); max-width:48ch; margin:0 auto; }
+
+  footer{ border-top:1px solid var(--line); padding:28px 0; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer a{ text-decoration:underline; }
+
+  @media (prefers-reduced-motion:no-preference){
+    .file-tab .dot{ animation:pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+  }
+
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+  .nav-link:hover{ text-decoration:underline; }
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap header-row">
+    <div class="brand">
+      <span class="brand-mark">WISZ<span>2</span> CONSULTING GROUP</span>
+    </div>
+    <div class="nav-group">
+      <div class="brand-tag">THE EXCEPTION REPORT — BACK ISSUES</div>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <div class="file-tab"><span class="dot"></span><span>Archive — Updated Every Issue</span></div>
+    <h1>The full <em>record</em>,<br>not just what's next.</h1>
+    <p class="masthead-sub">Every issue of The Exception Report, indexed here the week it ships. The sign-up page shows what's coming — this is what's already shipped.</p>
+
+    <div class="meta-strip">
+      <div class="meta-item">
+        <div class="k">Issues Published</div>
+        <div class="v" id="stat-count">—</div>
+      </div>
+      <div class="meta-item">
+        <div class="k">Latest Issue</div>
+        <div class="v" id="stat-latest">—</div>
+      </div>
+      <div class="meta-item">
+        <div class="k">Series Window</div>
+        <div class="v">Sep 8 – Dec 15, 2026</div>
+      </div>
+      <div class="meta-item">
+        <div class="k">Issued By</div>
+        <div class="v">Wisz2 Consulting Group</div>
+      </div>
+    </div>
+
+    <div class="sub-strip">
+      <div class="txt">Not on the list yet? <b>Future issues land in your inbox weekly.</b></div>
+      <a class="link-btn" href="index.html">Join The List →</a>
+    </div>
+  </div>
+</section>
+
+<section class="archive">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Complete Run</div>
+      <h2 style="font-size:26px;">Back issues, newest first.</h2>
+      <p>Every entry links to the full issue as published. Check back weekly — this list grows every Tuesday through December 15.</p>
+    </div>
+    <div id="issue-list"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE EXCEPTION REPORT →</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---------------------------------------------------------------
+  // TO PUBLISH A NEW ISSUE: add one object to the top or bottom of
+  // this array (order doesn't matter — it's sorted by n below) and
+  // republish this artifact. Fields:
+  //   n      — issue number, 1-15
+  //   date   — display date, e.g. "Sep 8, 2026"
+  //   pillar — "data" | "strategy" | "gtm"  (controls the pillar tag color)
+  //   title  — the issue's headline
+  //   hook   — 1-2 sentence teaser (its opening hook works well)
+  //   url    — link to the full published issue (blog post, Beehiiv
+  //            post, etc). Leave as "" if not hosted anywhere yet —
+  //            the card will show "Sent via newsletter" instead.
+  // ---------------------------------------------------------------
+  var ISSUES = [
+    // (empty — Issue 01 publishes September 8, 2026)
+  ];
+
+  var PILLAR_LABEL = { data:"Data & AI", strategy:"LP Strategy", gtm:"GTM" };
+  var PILLAR_TAG_CLASS = { data:"tag-a", strategy:"tag-b", gtm:"tag-c" };
+
+  function esc(s){
+    return String(s).replace(/[&<>]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]; });
+  }
+
+  function render(){
+    var sorted = ISSUES.slice().sort(function(a,b){ return b.n - a.n; });
+    var listEl = document.getElementById('issue-list');
+
+    if (sorted.length === 0){
+      listEl.innerHTML =
+        '<div class="empty">' +
+          '<div class="glyph">Nothing filed yet</div>' +
+          '<h3>Issue 01 ships September 8, 2026.</h3>' +
+          '<p>Once it goes out, this space fills in — one entry a week, newest on top, through Issue 15 in December.</p>' +
+        '</div>';
+      document.getElementById('stat-count').textContent = '0 of 15';
+      document.getElementById('stat-latest').textContent = 'Not yet shipped';
+      return;
+    }
+
+    var html = '<div class="issue-list">';
+    sorted.forEach(function(it){
+      var tagClass = PILLAR_TAG_CLASS[it.pillar] || 'tag-a';
+      var tagLabel = PILLAR_LABEL[it.pillar] || it.pillar;
+      var num = 'ISSUE ' + (it.n < 10 ? '0' + it.n : it.n);
+      var readLink = it.url
+        ? '<a class="read" href="' + esc(it.url) + '" target="_blank" rel="noopener">Read the full issue →</a>'
+        : '<span class="sent-note">Sent via newsletter — check your inbox</span>';
+
+      html +=
+        '<div class="issue">' +
+          '<div class="side">' +
+            '<div class="idx">' + num + '</div>' +
+            '<div class="date">' + esc(it.date) + '</div>' +
+            '<span class="pillar-pill ' + tagClass + '">' + esc(tagLabel) + '</span>' +
+          '</div>' +
+          '<div>' +
+            '<h3>' + esc(it.title) + '</h3>' +
+            '<p class="hook">' + esc(it.hook) + '</p>' +
+            readLink +
+          '</div>' +
+        '</div>';
+    });
+    html += '</div>';
+    listEl.innerHTML = html;
+
+    document.getElementById('stat-count').textContent = sorted.length + ' of 15';
+    document.getElementById('stat-latest').textContent = 'Issue ' + sorted[0].n + ' — ' + sorted[0].date;
+  }
+
+  render();
+})();
+</script>
+
+</body>
+</html>
