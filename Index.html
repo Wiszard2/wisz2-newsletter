@@ -232,7 +232,20 @@
     display:grid; grid-template-columns:88px 92px 1fr auto; gap:16px; align-items:center;
     padding:13px 4px; border-bottom:1px solid var(--line);
   }
-  @media (max-width:700px){ .entry{ grid-template-columns:60px 1fr; row-gap:4px; } .entry .pillar-pill, .entry .wk-date{ grid-column:2; } }
+  @media (max-width:700px){
+    .entry{
+      grid-template-columns:auto 1fr auto;
+      grid-template-areas:
+        "wk date pill"
+        "title title title";
+      row-gap:6px;
+      column-gap:10px;
+    }
+    .entry .wk{ grid-area:wk; }
+    .entry .wk-date{ grid-area:date; }
+    .entry .pillar-pill{ grid-area:pill; justify-self:end; }
+    .entry .title{ grid-area:title; }
+  }
   .entry .wk{ font-family:'IBM Plex Mono',monospace; color:var(--muted); font-size:12.5px; }
   .entry .wk-date{ font-family:'IBM Plex Mono',monospace; color:var(--muted); font-size:12px; }
   .entry .title{ font-size:14.5px; color:var(--ink); }
