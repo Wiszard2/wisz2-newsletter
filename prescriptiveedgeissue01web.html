@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue 01 — The 2027 Budget Season Starts Now | The Prescriptive Edge Report</title>
+<meta name="description" content="Why Loss Prevention Can't Wait for January: the 2027 budget-season playbook for retail LP leaders, from The Prescriptive Edge Report.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *{ box-sizing:border-box; }
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+  }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--amber); }
+
+  header{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); text-decoration:none; }
+  .brand-mark span{ color:var(--amber); }
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+
+  .masthead{ padding:56px 0 28px; border-bottom:1px solid var(--line); }
+  .pillar-pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; background:rgba(77,179,168,0.14); color:var(--teal); margin-bottom:18px;
+  }
+  .masthead .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .masthead h1{ font-size:38px; line-height:1.22; color:var(--ink); margin-bottom:18px; }
+  .masthead .dek{ font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:620px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.02em; }
+
+  article{ padding:44px 0 20px; font-size:17px; line-height:1.75; color:var(--ink-dim); }
+  article p{ margin:0 0 22px 0; }
+  article h2{ color:var(--ink); font-size:25px; line-height:1.3; margin:44px 0 18px; padding-top:2px; }
+  article h2:first-child{ margin-top:0; }
+  article strong{ color:var(--ink); }
+  article em{ font-style:italic; }
+
+  .tldr{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:26px 28px; margin:0 0 12px; }
+  .tldr .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+  .tldr ul{ margin:0; padding:0 0 0 20px; }
+  .tldr li{ margin-bottom:14px; color:var(--ink-dim); }
+  .tldr li:last-child{ margin-bottom:0; }
+  .tldr li strong{ color:var(--ink); }
+
+  .stat-list{ list-style:none; margin:0 0 22px; padding:0; }
+  .stat-list li{ padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .stat-list li:first-child{ border-top:1px solid var(--line); }
+  .stat-num{ font-family:'Newsreader', serif; font-weight:700; font-size:26px; color:var(--amber); min-width:96px; }
+  .stat-text{ flex:1; min-width:220px; color:var(--ink-dim); }
+  .stat-src{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); display:block; margin-top:4px; }
+
+  .cta-box{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:8px; padding:28px 30px; margin:36px 0 30px; }
+  .cta-box p{ margin:0 0 12px; color:var(--ink-dim); }
+  .cta-box p:last-child{ margin-bottom:0; }
+  .cta-box a{ color:var(--amber); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(226,161,58,0.4); }
+
+  .signoff{ margin-top:8px; }
+  .signoff .name{ color:var(--ink); font-weight:600; }
+  .signoff .role{ color:var(--muted); font-size:15px; }
+
+  .subscribe-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px 28px; margin:48px 0 8px; }
+  .subscribe-box .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .subscribe-box h3{ font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .subscribe-box p{ color:var(--muted); font-size:15px; margin:0 0 20px; }
+  .subscribe-btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:600;
+  }
+
+  .sources{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; padding-top:24px; border-top:1px solid var(--line); margin-top:8px; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; margin-top:20px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer .fine a{ color:var(--amber); text-decoration:none; }
+
+  @media (max-width:600px){
+    .masthead{ padding:40px 0 24px; }
+    .masthead h1{ font-size:29px; }
+    article{ font-size:16px; }
+    .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-mark" href="index.html">WISZ<span>2</span> CONSULTING GROUP</a>
+    <div class="nav-group">
+      <a class="nav-link" href="archive.html">← Back Issues</a>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <span class="pillar-pill">LP Strategy</span>
+    <div class="kicker">The Prescriptive Edge Report — Issue 01</div>
+    <h1>The 2027 Budget Season Starts Now: Why Loss Prevention Can't Wait for January</h1>
+    <p class="dek">Why the next 90 days decide your LP budget for all of 2027 — plus the data every AP leader needs walking into the room.</p>
+    <div class="meta-row">
+      <span>Published Tuesday, September 8, 2026</span>
+      <span>·</span>
+      <span>5–7 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="wrap">
+
+  <div class="tldr">
+    <div class="k">TLDR</div>
+    <ul>
+      <li><strong>Retail tech budgets hit $113B in 2026 (Forrester), up 6.6% YoY</strong> — but LP teams that show up to budget season without a growth story get cut first, not last.</li>
+      <li><strong>Shoplifting incidents are down 12.4% year over year (NRF).</strong> That sounds like good news. It's actually the hardest sentence in retail right now — because it's the one a CFO uses to justify a flat LP budget.</li>
+      <li><strong>Self-checkout shrink runs 16x higher than staffed lanes.</strong> AI exception detection cuts shrink 20–30% where retailers have actually deployed it. That gap between those two numbers is the entire budget conversation this fall.</li>
+      <li><strong>The leaders who win Q4 budget season</strong> aren't pitching "we stopped $X in loss." They're pitching "we protected margin and funded next year's growth." Different pitch. Different outcome.</li>
+    </ul>
+  </div>
+
+  <h2>The trap every LP leader is about to walk into</h2>
+  <p>Here's the sentence that's going to cost some of you your 2027 budget: <em>"Shoplifting is down."</em></p>
+  <p>It's true — incidents dropped 12.4% year over year, per NRF's 2026 research. It is also, if you're not careful, the exact data point your CFO uses in October to ask why Loss Prevention needs the same headcount and the same tech spend it had last year.</p>
+  <p>That's the trap. Declining theft numbers read as "problem solved" to anyone who isn't in the store every day. They don't read as "the threat moved" — which is what's actually happening. Organized retail crime doesn't respect the store walls that used to contain it. Fraud is migrating into self-checkout, into returns, into channels the old shrink numbers were never built to see. The people writing the budget checks are looking at a headline. You're looking at a moving target. Those are two different conversations, and right now, most LP leaders are still having the wrong one.</p>
+
+  <h2>What the data actually says</h2>
+  <p>A few numbers worth having memorized before your next budget meeting:</p>
+  <ul class="stat-list">
+    <li><span class="stat-num">$113B</span><span class="stat-text">total 2026 U.S. retail tech budget, up 6.6% YoY. Software now takes 46 cents of every dollar spent.<span class="stat-src">Forrester, 2026</span></span></li>
+    <li><span class="stat-num">12.4%</span><span class="stat-text">drop in shoplifting incidents, 2024–2025. Fraud is shifting channels, not disappearing.<span class="stat-src">NRF, 2026</span></span></li>
+    <li><span class="stat-num">16x</span><span class="stat-text">the shrink rate at self-checkout versus a staffed register.<span class="stat-src">Industry data, 2026</span></span></li>
+    <li><span class="stat-num">20–30%</span><span class="stat-text">typical shrink reduction from a well-implemented AI exception-detection system.<span class="stat-src">Industry data, 2026</span></span></li>
+  </ul>
+  <p>Put those last two together and you get the actual pitch: self-checkout is where the money is leaking, and AI-driven exception detection is the fastest-proven way to plug it. That's not a "stop theft" argument. That's a margin-recovery argument — and margin-recovery arguments get funded even in flat-budget years.</p>
+
+  <h2>The reframe that wins the room</h2>
+  <p>Every LP budget request in the last decade has been built the same way: here's what we prevented, please don't cut us. That framing put LP in a permanent defensive crouch, competing for scraps against departments that get to talk about growth.</p>
+  <p>The leaders who win this budget season are doing something different. They're walking in with a number, not an apology — "here's the shrink we're leaving on the table at self-checkout, here's what closing that gap is worth, here's the technology that gets us there." That's a growth pitch wearing a loss-prevention badge, and it's the difference between LP getting funded in Q4 and LP getting flat-lined into Q1.</p>
+  <p>We'll spend the next two issues going deep on exactly how to build that number and that pitch — starting next week with what the 2026 NRF data actually tells you once you stop reading the headline and start reading the appendix.</p>
+
+  <h2>If you're a solution provider reading this</h2>
+  <p>Your buyers are having this exact budget conversation right now, whether or not you're in the room for it. The vendors who show up in September with a margin-recovery case — tied to a specific, quantified gap like self-checkout shrink — are the ones getting a line item in the 2027 budget. The vendors who show up in Q1 with a generic "reduce shrink" pitch are competing for whatever's left. Timing your outreach to this cycle isn't optional anymore. It's the whole game.</p>
+
+  <h2>The move this week</h2>
+  <p>Three things worth doing before your next budget conversation, not after:</p>
+  <ul class="stat-list" style="list-style:decimal;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Pull your self-checkout shrink number specifically</strong> — not blended shrink, not total shrink. The 16x gap is where the budget case lives.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Price the gap, not the problem.</strong> What is closing even a third of that gap worth in annual margin? That's your headline number, not "incidents prevented."</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">Write the pitch as a growth memo, not a defense memo.</strong> If your budget ask reads like an apology, rewrite it before it reaches the CFO's desk.</li>
+  </ul>
+
+  <div class="cta-box">
+    <p><strong style="color:var(--ink);">If you want a second set of eyes on your FY27 budget narrative before it goes upstairs</strong> — or you're a solution provider trying to time your GTM motion to this exact cycle — <a href="mailto:matt.wisz@wisz2.com">reach out</a>. That's the work Wisz2 does every day, and budget season is exactly when a sharper narrative pays for itself.</p>
+    <p>See you next Tuesday for Issue 02: what the 2026 NRF report actually says once you read past the headline.</p>
+  </div>
+
+  <div class="signoff">
+    <p class="name" style="margin-bottom:2px;">— Matthew Wisz</p>
+    <p class="role" style="margin:0;">Founder, Wisz2 Consulting Group</p>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="k">The Prescriptive Edge Report</div>
+    <h3>Get every issue in your inbox</h3>
+    <p>One focused briefing a week on AI, loss prevention, and GTM growth for retail security leaders — and the partners who serve them.</p>
+    <a class="subscribe-btn" href="index.html">Subscribe →</a>
+  </div>
+
+  <p class="sources">Sources: Forrester, "US Tech Forecast 2026 For Retail" · NRF, "The Impact of Retail Theft &amp; Violence 2026" · NRF, "Retailers See Fraud Schemes Evolve as Shoplifting Declines" · industry data on self-checkout shrink and AI exception detection, 2026.</p>
+
+</article>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE PRESCRIPTIVE EDGE REPORT →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
