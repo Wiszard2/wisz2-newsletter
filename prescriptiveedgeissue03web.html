@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue 03 — From Cost Center to Growth Lever: Getting LP a Seat at the Budget Table | The Prescriptive Edge Report</title>
+<meta name="description" content="Retail tech budgets hit $113B this year, and Loss Prevention is competing with AI and data initiatives for the same money. Here's the reframe that wins the room, from The Prescriptive Edge Report.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *{ box-sizing:border-box; }
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+  }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--amber); }
+
+  header{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); text-decoration:none; }
+  .brand-mark span{ color:var(--amber); }
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+
+  .masthead{ padding:56px 0 28px; border-bottom:1px solid var(--line); }
+  .pillar-pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; background:rgba(77,179,168,0.14); color:var(--teal); margin-bottom:18px;
+  }
+  .masthead .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .masthead h1{ font-size:38px; line-height:1.22; color:var(--ink); margin-bottom:18px; }
+  .masthead .dek{ font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:620px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.02em; }
+
+  article{ padding:44px 0 20px; font-size:17px; line-height:1.75; color:var(--ink-dim); }
+  article p{ margin:0 0 22px 0; }
+  article h2{ color:var(--ink); font-size:25px; line-height:1.3; margin:44px 0 18px; padding-top:2px; }
+  article h2:first-child{ margin-top:0; }
+  article strong{ color:var(--ink); }
+  article em{ font-style:italic; }
+
+  .tldr{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:26px 28px; margin:0 0 12px; }
+  .tldr .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+  .tldr ul{ margin:0; padding:0 0 0 20px; }
+  .tldr li{ margin-bottom:14px; color:var(--ink-dim); }
+  .tldr li:last-child{ margin-bottom:0; }
+  .tldr li strong{ color:var(--ink); }
+
+  .stat-list{ list-style:none; margin:0 0 22px; padding:0; }
+  .stat-list li{ padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .stat-list li:first-child{ border-top:1px solid var(--line); }
+  .stat-num{ font-family:'Newsreader', serif; font-weight:700; font-size:26px; color:var(--amber); min-width:96px; }
+  .stat-text{ flex:1; min-width:220px; color:var(--ink-dim); }
+  .stat-src{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); display:block; margin-top:4px; }
+
+  .cta-box{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:8px; padding:28px 30px; margin:36px 0 30px; }
+  .cta-box p{ margin:0 0 12px; color:var(--ink-dim); }
+  .cta-box p:last-child{ margin-bottom:0; }
+  .cta-box a{ color:var(--amber); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(226,161,58,0.4); }
+
+  .signoff{ margin-top:8px; }
+  .signoff .name{ color:var(--ink); font-weight:600; }
+  .signoff .role{ color:var(--muted); font-size:15px; }
+
+  .subscribe-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px 28px; margin:48px 0 8px; }
+  .subscribe-box .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .subscribe-box h3{ font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .subscribe-box p{ color:var(--muted); font-size:15px; margin:0 0 20px; }
+  .subscribe-btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:600;
+  }
+
+  .sources{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; padding-top:24px; border-top:1px solid var(--line); margin-top:8px; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; margin-top:20px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer .fine a{ color:var(--amber); text-decoration:none; }
+
+  @media (max-width:600px){
+    .masthead{ padding:40px 0 24px; }
+    .masthead h1{ font-size:29px; }
+    article{ font-size:16px; }
+    .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-mark" href="index.html">WISZ<span>2</span> CONSULTING GROUP</a>
+    <div class="nav-group">
+      <a class="nav-link" href="archive.html">← Back Issues</a>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <span class="pillar-pill">LP Strategy</span>
+    <div class="kicker">The Prescriptive Edge Report — Issue 03</div>
+    <h1>From Cost Center to Growth Lever: Getting LP a Seat at the Budget Table</h1>
+    <p class="dek">Retail tech budgets hit $113B this year, and Loss Prevention is competing with AI and data initiatives for the same money. Here's the reframe that wins the room.</p>
+    <div class="meta-row">
+      <span>Published Tuesday, September 22, 2026</span>
+      <span>·</span>
+      <span>5–7 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="wrap">
+
+  <div class="tldr">
+    <div class="k">TLDR</div>
+    <ul>
+      <li><strong>Retail tech spend hit $113B in 2026, up 6.6% year over year (Forrester).</strong> LP isn't just competing with other LP line items anymore — it's competing with data platforms, cloud, and AI initiatives for that same pool of money.</li>
+      <li><strong>Retail runs on a 2–5% net margin (VantaInsights, 2026).</strong> On margins that thin, a dollar of shrink prevented is worth many times a dollar of new sales — but only if the pitch is built to show it.</li>
+      <li><strong>U.S. retailers lose $112.1B a year to shrink (NRF/LPRC Retail Security Survey).</strong> That number is big enough to carry a growth story. Most LP teams still use it to carry an apology instead.</li>
+      <li><strong>The programs that get funded are already speaking finance's language</strong> — margin protection, EBITDA impact, payback period. Not incident counts. Not "here's what we stopped." The leaders winning the room have already made that translation.</li>
+    </ul>
+  </div>
+
+  <h2>The pitch that's already losing before it starts</h2>
+  <p>Every budget season, most LP leaders walk into the room with the same slide: incidents down, cases closed, dollars recovered. It's a defensible slide. It is also, this year, a losing one.</p>
+  <p>Here's why: LP isn't competing against last year's LP budget anymore. It's competing against the AI pilot, the new data platform, the cloud migration — every other line item pitching the same finance committee for the same limited pool of money, and $113B of it moved through retail tech budgets in 2026 alone, up 6.6% year over year. Those other pitches are built in the language finance already speaks: projected margin lift, EBITDA impact, months to payback. "We stopped $X in loss" isn't wrong. It's just not fluent in the currency the room is actually trading in.</p>
+  <p>That mismatch is the entire budget conversation this fall. Not whether LP deserves funding — whether LP's ask is built the way the winning asks are built.</p>
+
+  <h2>What the data actually says</h2>
+  <p>A few numbers worth having memorized before your next budget meeting:</p>
+  <ul class="stat-list">
+    <li><span class="stat-num">$113B</span><span class="stat-text">total 2026 U.S. retail tech budget, up 6.6% YoY — the pool of money LP is now competing for alongside AI and data initiatives.<span class="stat-src">Forrester, 2026</span></span></li>
+    <li><span class="stat-num">$112.1B</span><span class="stat-text">lost to shrink annually across U.S. retail — the scale of the number LP already has to work with.<span class="stat-src">NRF/LPRC Retail Security Survey</span></span></li>
+    <li><span class="stat-num">2–5%</span><span class="stat-text">typical retail net profit margin. On margins this thin, a dollar of prevented loss drops straight to profit; a dollar of new sales keeps only 2–5 cents of it.<span class="stat-src">VantaInsights, 2026</span></span></li>
+    <li><span class="stat-num">4–9</span><span class="stat-text">months: typical single-store payback on a well-implemented AI exception-detection investment — a real payback-period number to put in front of finance.<span class="stat-src">Industry data, 2026</span></span></li>
+  </ul>
+  <p>Do the margin math once and the pitch changes shape. If your store runs a 3% net margin, a dollar of shrink you prevent is worth roughly $33 of new sales in bottom-line terms — because that dollar skips the cost of goods, the labor, the marketing spend that a sales dollar has to clear first. That's not a talking point. That's the same math the finance committee uses to evaluate every other line item on the table. LP just hasn't been handing it to them.</p>
+
+  <h2>The reframe: from cost center to growth lever</h2>
+  <p>A cost center asks to be maintained. A growth lever asks to be funded. The difference isn't the underlying work — it's which side of the ledger the pitch lives on.</p>
+  <p>Reframed this way, the same LP program becomes a margin-protection engine with a measurable payback period, not a recurring expense that competes with headcount for scraps. "We stopped $2M in loss" becomes "we protected $2M in margin — the profit-equivalent of roughly $67M in new sales at a 3% net margin, delivered in months, not years." Same underlying result, same math from the section above. Completely different budget outcome.</p>
+  <p>Next week, Issue 04 pushes this even further into the technology layer: why the real ROI in AI video and camera investment isn't the cameras themselves, but the correlation layer that turns footage into the handful of incidents that actually matter.</p>
+
+  <h2>What finance committees actually want to see</h2>
+  <p>Before a budget ask gets approved, most finance committees are quietly checking for three things, whether or not they say so out loud: a specific, quantified gap (not "reduce shrink," but "close the self-checkout gap worth $X"); a payback period stated in months, not a vague "long-term value" claim; and a framing that ties to a metric they already report upward — margin, EBITDA, or cost per dollar of revenue protected. An ask that answers all three in the first two sentences moves faster than one that makes the committee dig for them.</p>
+
+  <h2>If you're a solution provider reading this</h2>
+  <p>Your champions inside these accounts are having this exact translation problem right now — they believe in your product, but they don't have a finance-fluent one-pager to bring into the room. The vendors closing budget-season deals are the ones who hand their champion a payback-period number and an EBITDA-framed case, not just a feature list. If your sales enablement still leads with capabilities instead of the math a CFO will ask for, that gap is costing you deals you'd otherwise win.</p>
+
+  <h2>The move this week</h2>
+  <p>Three things worth doing before your next budget conversation, not after:</p>
+  <ul class="stat-list" style="list-style:decimal;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Recast your last "loss prevented" number into a margin or EBITDA-impact figure.</strong> Same result, translated into the currency finance is already tracking.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Build one slide that leads with payback period,</strong> not total cost. Months to break-even beats a bigger number with no timeline attached.</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">Time your ask to the committee's budget calendar</strong> — not your own. Showing up with the finance-framed version before the cycle closes is worth more than showing up first.</li>
+  </ul>
+
+  <div class="cta-box">
+    <p><strong style="color:var(--ink);">This is exactly where Wisz2 Consulting Group comes in.</strong> We sit down with LP leaders and walk their own numbers until we find the specific, quantified gap worth funding — then translate it into the margin, EBITDA, and payback-period language your finance committee already trusts, so the ask survives scrutiny instead of getting tabled. If you're a solution provider, we do the same work arming your champions with a finance-ready case instead of a feature list.</p>
+    <p><a href="mailto:matt.wisz@wisz2.com">Reach out</a> before this budget cycle closes — we'll help you identify what to ask for and build the case that gets it approved.</p>
+    <p>See you next Tuesday for Issue 04: the data foundation every LP program needs before it buys more cameras.</p>
+  </div>
+
+  <div class="signoff">
+    <p class="name" style="margin-bottom:2px;">— Matthew Wisz</p>
+    <p class="role" style="margin:0;">Founder, Wisz2 Consulting Group</p>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="k">The Prescriptive Edge Report</div>
+    <h3>Get every issue in your inbox</h3>
+    <p>One focused briefing a week on AI, loss prevention, and GTM growth for retail security leaders — and the partners who serve them.</p>
+    <a class="subscribe-btn" href="index.html">Subscribe →</a>
+  </div>
+
+  <p class="sources">Sources: Forrester, "US Tech Forecast 2026 For Retail" · NRF/Loss Prevention Research Council, Retail Security Survey · VantaInsights, "Retail Profit Margins: Industry Benchmarks & Data 2026" · industry data on AI exception-detection payback period, 2026.</p>
+
+</article>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE PRESCRIPTIVE EDGE REPORT →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
