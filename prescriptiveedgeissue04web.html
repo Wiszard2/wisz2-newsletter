@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue 04 — The Data Foundation Every LP Program Needs Before It Buys More Cameras | The Prescriptive Edge Report</title>
+<meta name="description" content="Most retailers don't have a camera problem. They have a footage problem — and AI is what turns thousands of hours of video into the handful of incidents that actually matter, from The Prescriptive Edge Report.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *{ box-sizing:border-box; }
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+  }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--amber); }
+
+  header{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); text-decoration:none; }
+  .brand-mark span{ color:var(--amber); }
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+
+  .masthead{ padding:56px 0 28px; border-bottom:1px solid var(--line); }
+  .pillar-pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; background:rgba(77,179,168,0.14); color:var(--teal); margin-bottom:18px;
+  }
+  .masthead .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .masthead h1{ font-size:38px; line-height:1.22; color:var(--ink); margin-bottom:18px; }
+  .masthead .dek{ font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:620px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.02em; }
+
+  article{ padding:44px 0 20px; font-size:17px; line-height:1.75; color:var(--ink-dim); }
+  article p{ margin:0 0 22px 0; }
+  article h2{ color:var(--ink); font-size:25px; line-height:1.3; margin:44px 0 18px; padding-top:2px; }
+  article h2:first-child{ margin-top:0; }
+  article strong{ color:var(--ink); }
+  article em{ font-style:italic; }
+
+  .tldr{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:26px 28px; margin:0 0 12px; }
+  .tldr .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+  .tldr ul{ margin:0; padding:0 0 0 20px; }
+  .tldr li{ margin-bottom:14px; color:var(--ink-dim); }
+  .tldr li:last-child{ margin-bottom:0; }
+  .tldr li strong{ color:var(--ink); }
+
+  .stat-list{ list-style:none; margin:0 0 22px; padding:0; }
+  .stat-list li{ padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .stat-list li:first-child{ border-top:1px solid var(--line); }
+  .stat-num{ font-family:'Newsreader', serif; font-weight:700; font-size:26px; color:var(--amber); min-width:96px; }
+  .stat-text{ flex:1; min-width:220px; color:var(--ink-dim); }
+  .stat-src{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); display:block; margin-top:4px; }
+
+  .cta-box{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:8px; padding:28px 30px; margin:36px 0 30px; }
+  .cta-box p{ margin:0 0 12px; color:var(--ink-dim); }
+  .cta-box p:last-child{ margin-bottom:0; }
+  .cta-box a{ color:var(--amber); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(226,161,58,0.4); }
+
+  .signoff{ margin-top:8px; }
+  .signoff .name{ color:var(--ink); font-weight:600; }
+  .signoff .role{ color:var(--muted); font-size:15px; }
+
+  .subscribe-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px 28px; margin:48px 0 8px; }
+  .subscribe-box .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .subscribe-box h3{ font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .subscribe-box p{ color:var(--muted); font-size:15px; margin:0 0 20px; }
+  .subscribe-btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:600;
+  }
+
+  .sources{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; padding-top:24px; border-top:1px solid var(--line); margin-top:8px; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; margin-top:20px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer .fine a{ color:var(--amber); text-decoration:none; }
+
+  @media (max-width:600px){
+    .masthead{ padding:40px 0 24px; }
+    .masthead h1{ font-size:29px; }
+    article{ font-size:16px; }
+    .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-mark" href="index.html">WISZ<span>2</span> CONSULTING GROUP</a>
+    <div class="nav-group">
+      <a class="nav-link" href="archive.html">← Back Issues</a>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <span class="pillar-pill" style="background:rgba(226,161,58,0.14); color:var(--amber);">AI & Data</span>
+    <div class="kicker">The Prescriptive Edge Report — Issue 04</div>
+    <h1>The Data Foundation Every LP Program Needs Before It Buys More Cameras</h1>
+    <p class="dek">Most retailers don't have a camera problem. They have a footage problem — and AI is what turns thousands of hours of video into the handful of incidents that actually matter.</p>
+    <div class="meta-row">
+      <span>Published Tuesday, September 29, 2026</span>
+      <span>·</span>
+      <span>5–7 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="wrap">
+
+  <div class="tldr">
+    <div class="k">TLDR</div>
+    <ul>
+      <li><strong>A single 2026 benchmark study analyzed 1.6 million monitoring events across more than 18,000 U.S. retail locations.</strong> No LP team is reviewing that volume of footage by hand — and no LP team needs to.</li>
+      <li><strong>95% of alarm events verified against video turn out to be false alarms (Interface Systems, 2026).</strong> That's not a camera problem. It's a signal problem — exactly what AI-driven video analysis is built to fix.</li>
+      <li><strong>67% of retailers already run AI-based video analytics</strong> to flag suspicious behavior. Adoption isn't the same as a working data foundation — the AI only earns its keep once it's correlated against POS data.</li>
+      <li><strong>Well-implemented AI exception detection is cutting shrink 20–30%</strong> where retailers have gotten that foundation right — proof the value was never in the camera. It's in what the AI does with what the camera sees.</li>
+    </ul>
+  </div>
+
+  <h2>The alert flood nobody talks about</h2>
+  <p>A 2026 benchmark study analyzed 1.6 million monitoring events across more than 18,000 U.S. retail locations and 51 brands. No retailer reading this has a team that reviews footage at that scale by hand — and the honest answer is that most of what a camera captures was never worth a human's attention in the first place.</p>
+  <p>Here's the number that proves it: once alarm events actually get verified against video, 95% turn out to be false alarms. That's not a failure of the cameras. It's what happens when a system generates alerts without a way to tell which ones matter. More cameras just means more of the same noise, faster.</p>
+  <p>The retailers pulling ahead aren't the ones buying more lenses. They're the ones who've built a system that watches every feed continuously, cross-references it against what's actually happening at the register, and only escalates the handful of incidents a human needs to see.</p>
+
+  <h2>What the data actually says</h2>
+  <p>A few numbers worth having memorized before your next AI or video-vendor conversation:</p>
+  <ul class="stat-list">
+    <li><span class="stat-num">1.6M</span><span class="stat-text">monitoring events analyzed across more than 18,000 U.S. retail locations in a single year — the scale no LP team can review by hand.<span class="stat-src">Interface Systems, 2026</span></span></li>
+    <li><span class="stat-num">95%</span><span class="stat-text">of alarm events resolved as false alarms once verified against video — proof that raw footage alone creates noise, not signal.<span class="stat-src">Interface Systems, 2026</span></span></li>
+    <li><span class="stat-num">67%</span><span class="stat-text">of retailers already run AI-based video analytics to flag suspicious behavior. Adoption isn't the same as an integrated data foundation.<span class="stat-src">Industry survey data, 2026</span></span></li>
+    <li><span class="stat-num">20–30%</span><span class="stat-text">typical shrink reduction from AI exception detection once video and POS data are actually correlated.<span class="stat-src">Industry data, 2026</span></span></li>
+  </ul>
+  <p>Put those together and the pitch writes itself: the volume proves cameras alone create noise, not signal. The shrink number proves the fix is real, once the data foundation underneath the cameras is actually right.</p>
+
+  <h2>The reframe: it was never about more cameras</h2>
+  <p>Every camera RFP gets pitched the same way: more coverage, higher resolution, more angles. None of that answers the question that actually matters, which is what happens to the footage after it's captured. A camera that records everything and flags nothing is a storage bill, not a loss-prevention program.</p>
+  <p>AI's real value isn't detection — it's analysis and alerting done correctly. It's the layer that watches every feed continuously, joins what the camera sees with what the POS system logs, and turns thousands of hours of raw video into a short, trustworthy list of incidents worth a human's time. That correlation layer is where the margin recovery actually lives, not in the camera count.</p>
+  <p>We'll go one step further next week — Issue 05 breaks down exactly what a working AI exception-detection system costs, how fast it pays back, and how to avoid the buy-vs-build mistakes that turn this into the most expensive line item in the wrong direction.</p>
+
+  <h2>If you're a retail technology company reading this</h2>
+  <p>Retail buyers are starting to ask a different question than they did even a year ago. It's no longer "how many cameras can you support" — it's "how do you turn footage into an alert I can actually trust." Vendors who can show a real false-positive rate and a working video-to-data correlation architecture are winning deals that vendors with only a detection claim are losing. If your sales conversation still leads with camera specs, that's worth revisiting before your next RFP cycle.</p>
+
+  <h2>The move this week</h2>
+  <p>Three things worth doing before your next AI or vendor conversation, not after:</p>
+  <ul class="stat-list" style="list-style:decimal;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Ask your video or AI vendor for their real false-positive rate</strong> — not just their detection claim. If they can't give you a number, that's the answer.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Check whether your video system already talks to your POS or transaction data.</strong> If it doesn't, that gap — not camera count — is the actual bottleneck.</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">Pick one store to pilot a correlated video-and-data alert workflow</strong> before your next camera RFP locks in more of the same.</li>
+  </ul>
+
+  <div class="cta-box">
+    <p><strong style="color:var(--ink);">If you want a second set of eyes on whether your video and data stack can actually support this kind of correlation</strong> — or you're a retail technology company building it into your product roadmap — <a href="mailto:matt.wisz@wisz2.com">reach out</a>. That's the work Wisz2 does every day, and getting this foundation right before you spend on more cameras is exactly where a second opinion pays for itself.</p>
+    <p>See you next Tuesday for Issue 05: how AI is rewriting the economics of exception-based reporting.</p>
+  </div>
+
+  <div class="signoff">
+    <p class="name" style="margin-bottom:2px;">— Matthew Wisz</p>
+    <p class="role" style="margin:0;">Founder, Wisz2 Consulting Group</p>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="k">The Prescriptive Edge Report</div>
+    <h3>Get every issue in your inbox</h3>
+    <p>One focused briefing a week on AI, loss prevention, and GTM growth for retail security leaders — and the partners who serve them.</p>
+    <a class="subscribe-btn" href="index.html">Subscribe →</a>
+  </div>
+
+  <p class="sources">Sources: Interface Systems, 2026 Retail Loss Prevention Benchmark Report · industry survey and vendor research on AI video analytics adoption, 2026 · industry data on AI exception detection, 2026.</p>
+
+</article>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE PRESCRIPTIVE EDGE REPORT →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
