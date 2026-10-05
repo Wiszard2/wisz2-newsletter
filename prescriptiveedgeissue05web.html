@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue 05 — Exception-Based Reporting 2.0: How AI Is Rewriting LP Economics | The Prescriptive Edge Report</title>
+<meta name="description" content="Most enterprise AI still can't prove it paid for itself. Retail loss prevention already has — and the professional-services layer is why. From The Prescriptive Edge Report.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *{ box-sizing:border-box; }
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+  }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--amber); }
+
+  header{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); text-decoration:none; }
+  .brand-mark span{ color:var(--amber); }
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+
+  .masthead{ padding:56px 0 28px; border-bottom:1px solid var(--line); }
+  .pillar-pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; background:rgba(77,179,168,0.14); color:var(--teal); margin-bottom:18px;
+  }
+  .masthead .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .masthead h1{ font-size:38px; line-height:1.22; color:var(--ink); margin-bottom:18px; }
+  .masthead .dek{ font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:620px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.02em; }
+
+  article{ padding:44px 0 20px; font-size:17px; line-height:1.75; color:var(--ink-dim); }
+  article p{ margin:0 0 22px 0; }
+  article h2{ color:var(--ink); font-size:25px; line-height:1.3; margin:44px 0 18px; padding-top:2px; }
+  article h2:first-child{ margin-top:0; }
+  article strong{ color:var(--ink); }
+  article em{ font-style:italic; }
+
+  .tldr{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:26px 28px; margin:0 0 12px; }
+  .tldr .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+  .tldr ul{ margin:0; padding:0 0 0 20px; }
+  .tldr li{ margin-bottom:14px; color:var(--ink-dim); }
+  .tldr li:last-child{ margin-bottom:0; }
+  .tldr li strong{ color:var(--ink); }
+
+  .stat-list{ list-style:none; margin:0 0 22px; padding:0; }
+  .stat-list li{ padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .stat-list li:first-child{ border-top:1px solid var(--line); }
+  .stat-num{ font-family:'Newsreader', serif; font-weight:700; font-size:26px; color:var(--amber); min-width:96px; }
+  .stat-text{ flex:1; min-width:220px; color:var(--ink-dim); }
+  .stat-src{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); display:block; margin-top:4px; }
+
+  .cta-box{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:8px; padding:28px 30px; margin:36px 0 30px; }
+  .cta-box p{ margin:0 0 12px; color:var(--ink-dim); }
+  .cta-box p:last-child{ margin-bottom:0; }
+  .cta-box a{ color:var(--amber); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(226,161,58,0.4); }
+
+  .signoff{ margin-top:8px; }
+  .signoff .name{ color:var(--ink); font-weight:600; }
+  .signoff .role{ color:var(--muted); font-size:15px; }
+
+  .subscribe-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px 28px; margin:48px 0 8px; }
+  .subscribe-box .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .subscribe-box h3{ font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .subscribe-box p{ color:var(--muted); font-size:15px; margin:0 0 20px; }
+  .subscribe-btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:600;
+  }
+
+  .sources{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; padding-top:24px; border-top:1px solid var(--line); margin-top:8px; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; margin-top:20px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer .fine a{ color:var(--amber); text-decoration:none; }
+
+  @media (max-width:600px){
+    .masthead{ padding:40px 0 24px; }
+    .masthead h1{ font-size:29px; }
+    article{ font-size:16px; }
+    .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-mark" href="index.html">WISZ<span>2</span> CONSULTING GROUP</a>
+    <div class="nav-group">
+      <a class="nav-link" href="archive.html">← Back Issues</a>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <span class="pillar-pill" style="background:rgba(226,161,58,0.14); color:var(--amber);">AI &amp; Data</span>
+    <div class="kicker">The Prescriptive Edge Report — Issue 05</div>
+    <h1>Exception-Based Reporting 2.0: How AI Is Rewriting LP Economics</h1>
+    <p class="dek">Across every industry, most AI investment still can't prove it paid for itself. Retail loss prevention is one of the rare places it already has — and the gap between those two stories is where the real opportunity sits.</p>
+    <div class="meta-row">
+      <span>Published Tuesday, October 6, 2026</span>
+      <span>·</span>
+      <span>6–8 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="wrap">
+
+  <div class="tldr">
+    <div class="k">TLDR</div>
+    <ul>
+      <li><strong>Most enterprise AI still can't prove it's working.</strong> 95% of generative AI pilots show no measurable financial return within six months, and only 39% of companies can attribute any EBIT impact to AI at all.</li>
+      <li><strong>Retail LP's AI economics don't have that problem.</strong> Single-store payback on AI exception detection runs 4–9 months, 9–16 months chain-wide, with 20–30% shrink reduction once it's actually running.</li>
+      <li><strong>68% of retailers plan to deploy agentic AI in the next 12–24 months (Deloitte)</strong> — but the real bottleneck is the same one exception-based reporting has always had: whether the underlying data is clean enough to act on.</li>
+      <li><strong>The retailers capturing that ROI increasingly lean on a professional-services layer</strong> — specialists who implement and run exception-based reporting programs, not just sell the software — to actually realize it.</li>
+    </ul>
+  </div>
+
+  <h2>The forensic era is ending</h2>
+  <p>Exception-based reporting isn't new. Retailers have been mining POS transaction data for suspicious patterns — voids, no-sales, excessive discounts, refund abuse — since the mid-2000s, and the ROI case for doing it was made a long time before anyone attached the words "artificial intelligence" to a loss prevention program. The original pitch was straightforward: flag the outliers, investigate the worst of them, and the dollars recovered per case more than cover the software. That pitch worked. It's still working. What's changed is what sits on top of it.</p>
+  <p>The AI-era version of exception reporting isn't just "the same rules, run faster." It's a shift in where the intervention happens. Traditional EBR is forensic — it tells you, days or weeks later, that something happened. The 2026 version is being built to move that intervention point upstream, catching the pattern as it forms rather than reconstructing it after the fact. Loss Prevention Magazine's reporting on AI video analytics this year frames it the same way: the metric worth watching in 2026 isn't how many alerts a system generates, it's investigation time per incident — how fast a flagged exception turns into a closed, actionable case. That's the real measure of whether "2.0" is actually happening inside a program, or whether it's just a software upgrade with the same workflow underneath.</p>
+  <p>D&amp;D Daily's industry coverage this year backs up that this shift is already underway on the ground, not just in vendor decks: LP and AP teams are "expanding their focus beyond traditional shrink investigations," with inventory integrity programs, exception reporting, and supply-chain visibility tools becoming core components of the job rather than a bolt-on. One vendor executive quoted in that same coverage put the philosophy plainly: "effective loss prevention should be proactive rather than reactive." A separate Loss Prevention Research Council case study covered by D&amp;D Daily compared investigators working the same type of case with and without AI-assisted video tools — the AI-assisted investigator closed it faster and built a stronger case file. No single case study rewrites an industry, but it's a concrete, specific data point for a trend that's otherwise easy to wave hands at.</p>
+
+  <h2>What the data actually says</h2>
+  <p>Two very different stories, both worth holding in your head at the same time:</p>
+  <ul class="stat-list">
+    <li><span class="stat-num">95%</span><span class="stat-text">of generative AI pilots across industries show no measurable financial return within six months.<span class="stat-src">MIT, "State of AI in Business," 2025</span></span></li>
+    <li><span class="stat-num">39%</span><span class="stat-text">of companies can attribute any EBIT impact to their AI investment at all — the rest can't show the math.<span class="stat-src">McKinsey, 2026</span></span></li>
+    <li><span class="stat-num">4–9 mo</span><span class="stat-text">typical single-store payback on AI-driven exception detection; 9–16 months chain-wide.<span class="stat-src">Industry data, 2026</span></span></li>
+    <li><span class="stat-num">20–30%</span><span class="stat-text">typical shrink reduction once an AI exception-detection program is fully implemented.<span class="stat-src">Industry data, 2026</span></span></li>
+  </ul>
+  <p>Put plainly: broad enterprise AI is struggling to clear a bar that LP's own AI deployments clear routinely. That's not a coincidence, and it's not because loss prevention's algorithms are smarter than everyone else's. It's because exception-based reporting already had two decades of operational discipline — clean transaction data, defined investigation workflows, a known cost-per-case baseline — for AI to plug into. Most of the 95% that are failing never had that foundation to begin with.</p>
+
+  <h2>The reframe: it's not the algorithm, it's who runs it</h2>
+  <p>NRF SmartBrief's coverage of Deloitte's 2026 retail outlook put a number on where this is headed next: 68% of retailers plan to deploy agentic AI within the next 12 to 24 months. But the same reporting flagged the obvious catch — the hurdle isn't the model, it's whether the retailer has a data catalog that's actually machine-readable. That's the identical problem exception-based reporting has wrestled with since day one: a rules engine, or an AI model, is only as good as the transaction and inventory data feeding it. The technology has gotten dramatically better. The data-readiness problem hasn't gone away; it's just moved up a level.</p>
+  <p>That's where the professional-services layer comes in, and it's the part of this story that gets the least attention next to the software headlines. MavenLP — a Louisville, Kentucky-based LP consulting firm — has built its entire practice around exactly this gap: implementing exception-based reporting programs, training investigators on how to actually work the case queue, and managing EBR programs on an ongoing basis for retailers who already own the software but aren't capturing its full value. MavenLP can also partner with EBR providers to ensure their customers are maximizing their ROI and using the system to its full potential — the software finds the exceptions; the services layer is what turns that into a functioning program with a measurable payback. That's a useful real-world answer to the 95%-failure-rate problem above: the retailers in loss prevention's successful minority generally aren't the ones with the newest model. They're the ones who paired the technology with someone whose job is making sure it gets used correctly, every day, by every investigator on the team.</p>
+  <p>Gartner's own 2026 forecast is a useful gut-check here: more than 40% of agentic AI projects will be canceled by 2027 due to unclear ROI, escalating costs, and what Gartner itself calls "agent washing" — vendors rebranding existing automation as agentic AI without the underlying capability to back it up. LP's 4–9 month payback number isn't a software feature. It's the output of a program that was implemented and run correctly. That distinction is about to matter a lot more as agentic AI rolls out chain-wide.</p>
+
+  <h2>If you're a retail technology company reading this</h2>
+  <p>The vendors who win the next two years of this cycle won't be the ones with the best model card. They'll be the ones who can point to a retailer's actual payback period and show their work — because buyers burned by the broader 95% AI-failure rate are going to ask harder questions before the next purchase order. If your go-to-market motion is "here's our AI feature," you're selling into a market that's increasingly skeptical of exactly that pitch. If it's "here's our AI feature, and here's the implementation partner who gets you to a 4–9 month payback," you're selling something the buyer's CFO can actually underwrite. Pairing with — or building — a genuine services and customer-success motion isn't overhead anymore. It's the difference between being counted in Gartner's 40% and not.</p>
+
+  <h2>The move this week</h2>
+  <p>Three things worth doing before you sign off on the next AI line item, not after:</p>
+  <ul class="stat-list" style="list-style:decimal;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Ask your vendor who actually implements this day-to-day</strong> — the software team, or a dedicated services partner. If the answer is vague, that's your first red flag.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Pull your own payback math</strong> and measure it against the 4–9 month single-store benchmark. If you're nowhere close, the gap is probably implementation, not technology.</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">Audit your data readiness before adding agentic AI on top.</strong> The same machine-readable data catalog problem that trips up 68% of planned agentic deployments is the one EBR has always needed solved first.</li>
+  </ul>
+
+  <div class="cta-box">
+    <p><strong style="color:var(--ink);">If you're trying to figure out whether your AI or exception-reporting program's shortfall is a technology gap or an execution gap</strong> — or you're a solution provider that needs to build or sharpen a real implementation and customer-success motion to match your product — <a href="mailto:matt.wisz@wisz2.com">reach out</a>. That diagnosis, and the plan to close the gap, is exactly the work Wisz2 does.</p>
+    <p>See you next Tuesday for Issue 06: the 16x self-checkout shrink problem, and the data-driven fix that's actually closing it.</p>
+  </div>
+
+  <div class="signoff">
+    <p class="name" style="margin-bottom:2px;">— Matthew Wisz</p>
+    <p class="role" style="margin:0;">Founder, Wisz2 Consulting Group</p>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="k">The Prescriptive Edge Report</div>
+    <h3>Get every issue in your inbox</h3>
+    <p>One focused briefing a week on AI, loss prevention, and GTM growth for retail security leaders — and the partners who serve them.</p>
+    <a class="subscribe-btn" href="index.html">Subscribe →</a>
+  </div>
+
+  <p class="sources">Sources: MIT, "The GenAI Divide: State of AI in Business 2025" · McKinsey, "The State of AI," 2026 · Deloitte, "2026 Retail Outlook," via NRF SmartBrief · Gartner, 2026 agentic AI forecast · D&amp;D Daily, "The Hidden Cost of Inventory Inaccuracy" and LPRC/FaceFirst case study coverage, 2026 · Loss Prevention Magazine, AI video analytics and exception-reporting coverage, 2026 · MavenLP (maven-lp.com) · industry data on AI exception-detection payback and shrink reduction, 2026.</p>
+
+</article>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE PRESCRIPTIVE EDGE REPORT →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
