@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue 06 — Self-Checkout Shrink: The 16x Problem and the Data-Driven Fix | The Prescriptive Edge Report</title>
+<meta name="description" content="Self-checkout shrink runs roughly 16x higher than staffed lanes. Here's what the 2026 data actually shows about why — and the exception-based fix that's closing the gap. From The Prescriptive Edge Report.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *{ box-sizing:border-box; }
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+  }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--amber); }
+
+  header{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); text-decoration:none; }
+  .brand-mark span{ color:var(--amber); }
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+
+  .masthead{ padding:56px 0 28px; border-bottom:1px solid var(--line); }
+  .pillar-pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; background:rgba(77,179,168,0.14); color:var(--teal); margin-bottom:18px;
+  }
+  .masthead .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .masthead h1{ font-size:38px; line-height:1.22; color:var(--ink); margin-bottom:18px; }
+  .masthead .dek{ font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:620px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.02em; }
+
+  article{ padding:44px 0 20px; font-size:17px; line-height:1.75; color:var(--ink-dim); }
+  article p{ margin:0 0 22px 0; }
+  article h2{ color:var(--ink); font-size:25px; line-height:1.3; margin:44px 0 18px; padding-top:2px; }
+  article h2:first-child{ margin-top:0; }
+  article strong{ color:var(--ink); }
+  article em{ font-style:italic; }
+
+  .tldr{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:26px 28px; margin:0 0 12px; }
+  .tldr .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+  .tldr ul{ margin:0; padding:0 0 0 20px; }
+  .tldr li{ margin-bottom:14px; color:var(--ink-dim); }
+  .tldr li:last-child{ margin-bottom:0; }
+  .tldr li strong{ color:var(--ink); }
+
+  .stat-list{ list-style:none; margin:0 0 22px; padding:0; }
+  .stat-list li{ padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .stat-list li:first-child{ border-top:1px solid var(--line); }
+  .stat-num{ font-family:'Newsreader', serif; font-weight:700; font-size:26px; color:var(--amber); min-width:96px; }
+  .stat-text{ flex:1; min-width:220px; color:var(--ink-dim); }
+  .stat-src{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); display:block; margin-top:4px; }
+
+  .cta-box{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:8px; padding:28px 30px; margin:36px 0 30px; }
+  .cta-box p{ margin:0 0 12px; color:var(--ink-dim); }
+  .cta-box p:last-child{ margin-bottom:0; }
+  .cta-box a{ color:var(--amber); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(226,161,58,0.4); }
+
+  .signoff{ margin-top:8px; }
+  .signoff .name{ color:var(--ink); font-weight:600; }
+  .signoff .role{ color:var(--muted); font-size:15px; }
+
+  .subscribe-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px 28px; margin:48px 0 8px; }
+  .subscribe-box .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .subscribe-box h3{ font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .subscribe-box p{ color:var(--muted); font-size:15px; margin:0 0 20px; }
+  .subscribe-btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:600;
+  }
+
+  .sources{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; padding-top:24px; border-top:1px solid var(--line); margin-top:8px; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; margin-top:20px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer .fine a{ color:var(--amber); text-decoration:none; }
+
+  @media (max-width:600px){
+    .masthead{ padding:40px 0 24px; }
+    .masthead h1{ font-size:29px; }
+    article{ font-size:16px; }
+    .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-mark" href="index.html">WISZ<span>2</span> CONSULTING GROUP</a>
+    <div class="nav-group">
+      <a class="nav-link" href="archive.html">← Back Issues</a>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <span class="pillar-pill" style="background:rgba(226,161,58,0.14); color:var(--amber);">AI &amp; Data</span>
+    <div class="kicker">The Prescriptive Edge Report — Issue 06</div>
+    <h1>Self-Checkout Shrink: The 16x Problem and the Data-Driven Fix</h1>
+    <p class="dek">Self-checkout now runs a shrink rate roughly 16 times higher than a staffed cashier lane. That's not a reason to rip the lanes out — it's a reason to finally instrument them the way the rest of the store already is.</p>
+    <div class="meta-row">
+      <span>Published Tuesday, October 13, 2026</span>
+      <span>·</span>
+      <span>6–8 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="wrap">
+
+  <div class="tldr">
+    <div class="k">TLDR</div>
+    <ul>
+      <li><strong>Self-checkout's shrink rate runs about 16x higher than a staffed lane.</strong> A controlled computer-vision study tracking nearly 5,000 transactions found a 3.5% revenue-based shrink rate at self-checkout versus 0.21% with a cashier — and that gap has only widened as self-checkout volume has grown.</li>
+      <li><strong>Average store losses climb 22% in the first year after self-checkout goes in,</strong> and self-checkout now handles 54% of transactions at grocers where it's offered, per the 2026 Self-Checkout Loss Report from ECR Retail Loss.</li>
+      <li><strong>Most of it isn't theft in the classic sense.</strong> Cart-based under-scanning — leaving an item unrung — now drives roughly 30% of self-checkout loss incidents, nearly double the year before, per Everseen's Retail Threat Curve Report.</li>
+      <li><strong>NRF Big Show 2026 made the fix explicit:</strong> weight verification, AI vision cameras, and exception-based review are now showing up as the default spec on self-checkout hardware, not a pricey add-on.</li>
+    </ul>
+  </div>
+
+  <h2>The self-checkout math nobody budgeted for</h2>
+  <p>Self-checkout was sold on labor math, not loss math. Fewer cashiers, more throughput, a better margin per square foot of front-end real estate. The loss math got backfilled later, and it hasn't been kind. A computer-vision study that tracked nearly 5,000 real transactions — comparing what shoppers physically picked up against what they actually paid for — found a revenue-based shrink rate of 3.5% at self-checkout versus 0.21% at a staffed lane. That's the origin of the number that's been quoted across the industry ever since: self-checkout shrinks at roughly 16 times the rate of a cashier lane. It's an estimate from a single study, not a government census, but three years and multiple follow-on reports later, nobody in the industry is seriously disputing the direction.</p>
+  <p>Loss Prevention Magazine's reporting on this puts it in the context LP leaders actually care about: the latest NRF Security Survey has total U.S. retail shrink at $112.1 billion, up nearly 20% year over year, and a separate study of U.S. and European retailers found that companies running self-checkout lanes and apps carry a loss rate around 4% — more than double the broader industry average. None of this means self-checkout is going away. The same coverage notes that cashier roles are projected to see the steepest employment decline of any U.S. occupation through 2031, and over half of consumers say they'd switch retailers for a smoother checkout experience. The economics pulling retailers toward self-checkout are real. So is the bill that comes with it if nobody's watching the lane.</p>
+  <p>And most of that bill isn't theft in the way LP has traditionally defined it. Everseen's Retail Threat Curve Report found cart-based under-scanning — a shopper leaving an item unrung in the cart — now accounts for roughly 30% of self-checkout loss incidents, nearly double the share a year earlier, with the average unscanned-item count per incident climbing from 1.6 to 3.8. That's an accuracy and friction problem as much as it's a dishonesty problem, which is exactly why "hire more loss prevention officers to watch the lanes" was never going to be the fix. You can't staff your way out of a problem that's mostly about people not noticing what they didn't scan.</p>
+
+  <h2>What the data actually says</h2>
+  <p>Four numbers that, together, explain why this issue exists:</p>
+  <ul class="stat-list">
+    <li><span class="stat-num">16x</span><span class="stat-text">higher revenue-based shrink rate at self-checkout (3.5%) versus a staffed cashier lane (0.21%).<span class="stat-src">Grabango-commissioned study, nearly 5,000 transactions, 2023</span></span></li>
+    <li><span class="stat-num">22%</span><span class="stat-text">average increase in total store losses in the first year after self-checkout is introduced.<span class="stat-src">ECR Retail Loss, "2026 Self-Checkout Loss Report"</span></span></li>
+    <li><span class="stat-num">30%</span><span class="stat-text">of self-checkout loss incidents now driven by cart-based under-scanning, not deliberate theft.<span class="stat-src">Everseen, "Retail Threat Curve Report"</span></span></li>
+    <li><span class="stat-num">4%</span><span class="stat-text">loss rate at retailers running self-checkout — more than double the broader industry average.<span class="stat-src">NRF Security Survey, via Loss Prevention Magazine</span></span></li>
+  </ul>
+  <p>Put together, the pattern is clear: self-checkout didn't create a new kind of thief. It removed the one control — a cashier watching every item cross the belt — that used to catch both the honest mistake and the dishonest one at the same moment, for free. Replacing that control with technology is the whole ballgame now, and the retailers getting it right aren't doing it by adding people back. They're doing it with the same exception logic LP has run on for twenty years, pointed at a new register format.</p>
+
+  <h2>The reframe: it's not a people problem, it's a visibility problem</h2>
+  <p>NRF's Big Show in January drew it out plainly: unattended-service exhibits have grown every year, and this year nearly every major self-checkout vendor showed up with a loss-prevention angle built into the hardware rather than sold as an add-on. Toshiba's biometric checkout camera is built to "identify potential shrink activities" at the point of transaction. Laurenti Brasil's kiosk adds a weight-verification device that checks whether what's on the tray matches what was scanned. Diebold Nixdorf's computer vision now recognizes produce and other no-barcode items automatically, closing one of the biggest sources of innocent under-scanning. Fujitsu's GK Vision and UST both pitched real-time, AI-driven fraud and shrink alerts layered onto the checkout camera feed that was already there. The spec sheet changed. The thesis behind it is exactly exception-based reporting: don't watch every transaction with a human, flag the ones that actually look wrong.</p>
+  <p>Everseen's own production data shows what that looks like running at scale: its vision system triggers a soft, on-screen "nudge" — a quick replay of the missed scan, no staff called — in roughly 3% to 10% of self-checkout transactions, and shoppers correct it themselves 80% to 97% of the time. That's the self-checkout version of a rule every exception-reporting program already knows: most flagged exceptions resolve themselves once someone's attention is on them for five seconds, and the few that don't are exactly the ones worth a human's time. D&amp;D Daily's reporting this month on organized retail crime in Canada's Peel Region makes the same point from a completely different angle — police there have learned that a small set of repeat offenders drives a disproportionate share of cases, with one loss-prevention executive at the Retail Council of Canada putting it directly: "we can start to identify the 15 per cent that causes 80 per cent of the issues." Self-checkout exceptions follow the identical curve. Most of the 16x gap is a handful of items, a handful of behaviors, and a small number of repeat accounts — which is a solvable data problem, not an unsolvable people problem.</p>
+  <p>That's also where the professional-services layer MavenLP occupies in the broader exception-reporting conversation extends naturally to self-checkout. The hardware now ships with the detection built in; what still has to be built by hand, store by store, is the escalation workflow — which nudges get auto-resolved, which patterns get flagged to an investigator, and which repeat-offender accounts get tracked across visits. MavenLP can also partner with EBR providers to ensure their customers are maximizing their ROI and using the system to its full potential, which for a lot of retailers now specifically means extending an existing EBR program's case-management discipline out to the self-checkout exception queue, rather than treating it as a separate system nobody owns.</p>
+
+  <h2>If you're a retail technology company reading this</h2>
+  <p>Every self-checkout vendor at NRF this year can show a loss-prevention camera demo. Far fewer can show what happens to the alert after it fires — who sees it, how fast, and what fraction get resolved without ever reaching a human. That gap is becoming the actual sales conversation. Retailers that have already been burned by alert fatigue from a prior video-analytics rollout are going to ask for the nudge-rate and self-correction numbers before they ask about camera resolution. If your product can't say what percentage of its own flags resolve themselves versus escalate, you're selling a camera, not an exception-reporting system — and in a market this crowded, that's the distinction buyers are starting to shop on.</p>
+
+  <h2>The move this week</h2>
+  <p>Three things worth doing before the next self-checkout refresh or retrofit gets signed off:</p>
+  <ul class="stat-list" style="list-style:decimal;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Isolate your self-checkout loss number from total store shrink.</strong> If you can't separate the two today, you can't tell whether a fix is working once you buy one.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Ask any vendor for their nudge rate and self-correction rate</strong> — not just a detection-accuracy number. A system that flags everything and resolves nothing just moves the alert fatigue to a different screen.</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">Map your item categories against your actual loss data.</strong> Produce and no-barcode items drive a disproportionate share of innocent under-scanning — weight verification and vision coverage should be prioritized there first, not spread evenly across every lane.</li>
+  </ul>
+
+  <div class="cta-box">
+    <p><strong style="color:var(--ink);">If you're trying to figure out whether your self-checkout shrink is a hardware gap, a workflow gap, or an ownership gap</strong> — or you're a solution provider that needs to turn a detection demo into a sellable exception-management story — <a href="mailto:matt.wisz@wisz2.com">reach out</a>. That diagnosis, and the plan to close the gap, is exactly the work Wisz2 does.</p>
+    <p>See you next Tuesday for Issue 07: GTM 101 for LP solution providers — how to sell into a buyer that's risk-averse, committee-driven, and increasingly skeptical of a camera demo alone.</p>
+  </div>
+
+  <div class="signoff">
+    <p class="name" style="margin-bottom:2px;">— Matthew Wisz</p>
+    <p class="role" style="margin:0;">Founder, Wisz2 Consulting Group</p>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="k">The Prescriptive Edge Report</div>
+    <h3>Get every issue in your inbox</h3>
+    <p>One focused briefing a week on AI, loss prevention, and GTM growth for retail security leaders — and the partners who serve them.</p>
+    <a class="subscribe-btn" href="index.html">Subscribe →</a>
+  </div>
+
+  <p class="sources">Sources: Grabango-commissioned self-checkout shrink study, nearly 5,000 transactions, 2023 (via Business Wire) · ECR Retail Loss, "2026 Self-Checkout Loss Report," via Technology Magazine · Everseen, "Retail Threat Curve Report" · NRF Security Survey shrink data, via Loss Prevention Magazine, "Will 'The Steal' Slow Self-Checkout and Frictionless Commerce?" · NRF Big Show 2026 self-service/AI vision exhibitor roundup, via NRF SmartBrief · D&amp;D Daily, Peel Region organized retail crime coverage, Oct. 8, 2026 · MavenLP (maven-lp.com).</p>
+
+</article>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE PRESCRIPTIVE EDGE REPORT →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
