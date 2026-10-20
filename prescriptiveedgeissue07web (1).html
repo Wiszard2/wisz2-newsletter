@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue 07 — GTM 101 for LP Solution Providers: Selling Into Risk-Averse Buyers | The Prescriptive Edge Report</title>
+<meta name="description" content="The LP tech buying committee is bigger and more risk-averse than it's ever been. Here's what the 2026 buyer-behavior data actually says, and how solution providers win anyway. From The Prescriptive Edge Report.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *{ box-sizing:border-box; }
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+  }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--amber); }
+
+  header{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); text-decoration:none; }
+  .brand-mark span{ color:var(--amber); }
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+
+  .masthead{ padding:56px 0 28px; border-bottom:1px solid var(--line); }
+  .pillar-pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; background:rgba(77,179,168,0.14); color:var(--teal); margin-bottom:18px;
+  }
+  .masthead .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .masthead h1{ font-size:38px; line-height:1.22; color:var(--ink); margin-bottom:18px; }
+  .masthead .dek{ font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:620px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.02em; }
+
+  article{ padding:44px 0 20px; font-size:17px; line-height:1.75; color:var(--ink-dim); }
+  article p{ margin:0 0 22px 0; }
+  article h2{ color:var(--ink); font-size:25px; line-height:1.3; margin:44px 0 18px; padding-top:2px; }
+  article h2:first-child{ margin-top:0; }
+  article strong{ color:var(--ink); }
+  article em{ font-style:italic; }
+
+  .tldr{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:26px 28px; margin:0 0 12px; }
+  .tldr .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+  .tldr ul{ margin:0; padding:0 0 0 20px; }
+  .tldr li{ margin-bottom:14px; color:var(--ink-dim); }
+  .tldr li:last-child{ margin-bottom:0; }
+  .tldr li strong{ color:var(--ink); }
+
+  .stat-list{ list-style:none; margin:0 0 22px; padding:0; }
+  .stat-list li{ padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .stat-list li:first-child{ border-top:1px solid var(--line); }
+  .stat-num{ font-family:'Newsreader', serif; font-weight:700; font-size:26px; color:var(--amber); min-width:96px; }
+  .stat-text{ flex:1; min-width:220px; color:var(--ink-dim); }
+  .stat-src{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); display:block; margin-top:4px; }
+
+  .cta-box{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:8px; padding:28px 30px; margin:36px 0 30px; }
+  .cta-box p{ margin:0 0 12px; color:var(--ink-dim); }
+  .cta-box p:last-child{ margin-bottom:0; }
+  .cta-box a{ color:var(--amber); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(226,161,58,0.4); }
+
+  .signoff{ margin-top:8px; }
+  .signoff .name{ color:var(--ink); font-weight:600; }
+  .signoff .role{ color:var(--muted); font-size:15px; }
+
+  .subscribe-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px 28px; margin:48px 0 8px; }
+  .subscribe-box .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .subscribe-box h3{ font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .subscribe-box p{ color:var(--muted); font-size:15px; margin:0 0 20px; }
+  .subscribe-btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:600;
+  }
+
+  .sources{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; padding-top:24px; border-top:1px solid var(--line); margin-top:8px; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; margin-top:20px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer .fine a{ color:var(--amber); text-decoration:none; }
+
+  @media (max-width:600px){
+    .masthead{ padding:40px 0 24px; }
+    .masthead h1{ font-size:29px; }
+    article{ font-size:16px; }
+    .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-mark" href="index.html">WISZ<span>2</span> CONSULTING GROUP</a>
+    <div class="nav-group">
+      <a class="nav-link" href="archive.html">← Back Issues</a>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <span class="pillar-pill" style="background:rgba(198,91,78,0.14); color:#e8998d;">GTM</span>
+    <div class="kicker">The Prescriptive Edge Report — Issue 07</div>
+    <h1>GTM 101 for LP Solution Providers: Selling Into Risk-Averse Buyers</h1>
+    <p class="dek">The LP buying committee isn't shrinking and it isn't getting less cautious. Here's what the 2026 buyer-behavior data actually says about that committee — and the GTM motion that wins it anyway.</p>
+    <div class="meta-row">
+      <span>Published Tuesday, October 20, 2026</span>
+      <span>·</span>
+      <span>6–8 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="wrap">
+
+  <div class="tldr">
+    <div class="k">TLDR</div>
+    <ul>
+      <li><strong>The buying committee isn't 2 people anymore — it's closer to 20.</strong> A typical B2B tech purchase now involves 10–13 internal stakeholders plus up to 9 external participants, and 70% of that buying journey happens before a seller is ever contacted.</li>
+      <li><strong>94% of buying groups rank their vendor shortlist before contacting sales</strong> — and the #1-ranked vendor from that shortlist wins the deal roughly 80% of the time. Most GTM motions are decided before the first call, not during it.</li>
+      <li><strong>Risk aversion isn't paranoia, it's informed.</strong> Retail data breaches have nearly doubled and third-party vendor incidents now drive a growing share of losses — every new LP vendor a buyer evaluates is also a new attack surface they have to underwrite.</li>
+      <li><strong>86% of B2B purchases stall somewhere in the process, and 81% of buyers end up dissatisfied with the vendor they picked anyway</strong> — which means the solution providers who fix friction, not just features, are the ones actually closing.</li>
+    </ul>
+  </div>
+
+  <h2>The committee got bigger. The budget got slower to move. Nobody told sales.</h2>
+  <p>A lot of GTM playbooks in this category still assume a 2018 buyer: a champion, maybe a budget-holder, a handful of emails, a demo, a close. That buyer doesn't exist anymore, in LP or anywhere else in B2B. A typical enterprise software purchase now involves 10 to 13 internal stakeholders plus up to 9 external participants — IT, finance, operations, legal, end users, each scoring the deal against a different rubric — and AI-related purchases can pull in 20 or more. By the time a solution provider's rep gets a meeting, roughly 70% of that buying journey has already happened without them.</p>
+  <p>That's not a sales-process failure. It's the buyer doing exactly what Forrester and Corporate Visions' research says buyers are increasingly forced to do: 79% of B2B purchases now require CFO approval, 87% of tech buyers have restricted their process to mission-critical purchases only, and 92% of buyers start evaluation with at least one vendor already in mind — most of them having already built a day-one shortlist of 3 to 4 vendors they'll seriously consider. The committee isn't being slow for its own sake. It's protecting itself from a bad decision it will own for years.</p>
+  <p>D&amp;D Daily's own cybersecurity coverage this year is a useful reminder of exactly what that caution is protecting against: retail data breaches are described as nearly doubling, and Willis's cyber-insurance loss data shows third-party vendor incidents now account for a growing share of total losses. Every new LP vendor a retailer brings in isn't just a line item — it's a new vendor relationship their security and legal teams have to underwrite. A solution provider who shows up only with a product demo, and no answer for "how do you handle our data, and who else has trusted you with theirs," is asking a risk-averse buyer to absorb risk they were never going to absorb casually.</p>
+
+  <h2>What the data actually says</h2>
+  <p>Four numbers every GTM leader selling into this buyer should have memorized:</p>
+  <ul class="stat-list">
+    <li><span class="stat-num">10–13</span><span class="stat-text">internal stakeholders in a typical B2B tech purchase, plus up to 9 external participants — 20+ for AI-related purchases.<span class="stat-src">6sense, 2025 B2B Buyer Experience Report</span></span></li>
+    <li><span class="stat-num">70%</span><span class="stat-text">of the buying journey happens before a seller is ever contacted.<span class="stat-src">6sense, 2025</span></span></li>
+    <li><span class="stat-num">94%</span><span class="stat-text">of buying groups rank their vendor shortlist before contacting sales — the #1-ranked vendor wins the deal about 80% of the time.<span class="stat-src">Corporate Visions, citing 6Sense, 2025</span></span></li>
+    <li><span class="stat-num">86%</span><span class="stat-text">of B2B purchases stall somewhere in the process, and 81% of buyers are dissatisfied with the vendor they end up choosing anyway.<span class="stat-src">Forrester, 2024, via Corporate Visions</span></span></li>
+  </ul>
+  <p>Read together, these numbers say something sharper than "buyers are cautious." They say most of the deal is won or lost before a rep ever opens a discovery call — in the content, references, and peer signal the buying committee finds on its own — and that even the deals that do close often leave the buyer unsatisfied, which is its own kind of risk for whoever's trying to land an expansion or a renewal later.</p>
+
+  <h2>The reframe: the friction is the product, not an obstacle to it</h2>
+  <p>Emblaze's research puts a number on a problem every LP solution-provider rep has felt but rarely measured: sellers and buyers show an average 54.5% misalignment on what the buyer's actual core problem even is. Buyers change their own problem statement an average of 3.2 times during a complex purchase, as more of the committee weighs in. The sellers who build in a problem-statement checkpoint — revisiting and reconfirming it every time a new stakeholder joins — see win rates improve by 38%. That's not a soft-skills tip. It's the GTM equivalent of exception-based reporting: stop assuming the first signal you got is still the right one, and build a checkpoint that catches it when it drifts.</p>
+  <p>Friction compounds the same way. SBI's research found high-friction buying environments cut the odds of a purchase happening at all by 43%, and 71% of buyers describe their experience with supplier reps as outright frustrating. Gartner's 2025 data backs that up from the buyer's side: 61% of B2B buyers now prefer a rep-free buying experience where possible, and 73% actively avoid vendors that send irrelevant outreach. None of that means solution providers should sell less actively — it means the selling has to show up as removing friction for the committee, not adding to it. A forwardable one-page ROI summary a champion can hand to their CFO without editing it first does more for a deal than another check-in call. A reference call set up before it's asked for does more than a glossy case study PDF.</p>
+  <p>The through-line across every issue of this newsletter has been the same: the winners aren't the ones with the loudest signal, they're the ones who build the system that filters to the few signals that actually matter and act on them fast. That's true of exception-based reporting catching the handful of transactions worth investigating out of millions. It's equally true of a GTM motion that filters a 20-person buying committee down to the 3 or 4 stakeholders actually driving the decision, and gives each of them exactly the proof they need to move it forward.</p>
+
+  <h2>If you're building or leading a GTM motion for an LP solution provider</h2>
+  <p>Three shifts separate the teams that are winning this buyer from the ones still running a 2018 playbook against a 2026 committee. First, multi-thread every open deal — not as a hedge against a champion leaving, but because the committee's 10-plus stakeholders are each going to independently veto a deal that doesn't address their specific concern, whether or not your champion ever surfaces it. Second, arm the champion, don't just sell to them: a one-pager with real ROI math, a peer reference, and a plain-language answer to the security/vendor-risk question does more to move a stalled deal than another feature walkthrough. Third, build the problem-statement checkpoint into your own sales process, not just your messaging — revisit it explicitly every time a new stakeholder enters the deal, because the version of the problem your champion described in week one is rarely the version the CFO is going to fund in week twelve.</p>
+
+  <h2>The move this week</h2>
+  <p>Three things worth auditing in your current pipeline, not your next one:</p>
+  <ul class="stat-list" style="list-style:decimal;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Map the actual buying committee on every deal past discovery</strong> — not just the champion. If you can't name the finance, security, and end-user stakeholders by name, you don't have the deal mapped, you have a contact.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Build one forwardable, CFO-ready one-pager per deal type</strong> — ROI math, a peer reference, and a plain answer to the vendor-risk question — and hand it to the champion before they have to ask for it.</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">Add a problem-statement checkpoint at every stage gate.</strong> If the buyer's stated problem hasn't been reconfirmed since a new stakeholder joined, you're selling against a stale brief.</li>
+  </ul>
+
+  <div class="tldr" style="margin-top:12px;">
+    <div class="k">The track record behind this playbook</div>
+    <ul>
+      <li><strong>$23.2M</strong> in pipeline personally sourced across Appriss Retail and Agilence, feeding closed/won Tier 1 enterprise retail accounts.</li>
+      <li><strong>$2.975M</strong> — the highest pipeline quarter in ThinkLP's history (Q1 2026), 47% above the prior record, built with roughly one-third the original SDR headcount.</li>
+      <li><strong>11x</strong> pipeline per rep after restructuring ThinkLP's SDR team from 6 reps to 2 (~$133K to ~$1.49M per quarter), with average deal size growing from $47K to $98K.</li>
+      <li><strong>$3.995M</strong> built at Solo.io in the first 90 days on the job — $3M in pipeline plus $995K in Commit-stage opportunities — while growing pipeline 87% and qualified leads 72% against Global 5,000 accounts.</li>
+    </ul>
+  </div>
+
+  <div class="cta-box">
+    <p><strong style="color:var(--ink);">This is the same playbook, run for real, inside LP and retail-tech GTM teams for 20+ years</strong> — mapping the committee, arming the champion, and rebuilding a sales motion around what a risk-averse buyer actually needs to say yes. If you're a solution provider rebuilding your GTM motion, scaling a lean team, or trying to shorten a stalled sales cycle, <a href="mailto:matt.wisz@wisz2.com">reach out</a>. That's exactly the work Wisz2 does.</p>
+    <p>See you next Tuesday for Issue 08: Pipeline Isn't a Marketing Problem — aligning sales, product, and proof so the pipeline you build this quarter doesn't evaporate next quarter.</p>
+  </div>
+
+  <div class="signoff">
+    <p class="name" style="margin-bottom:2px;">— Matthew Wisz</p>
+    <p class="role" style="margin:0;">Founder, Wisz2 Consulting Group</p>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="k">The Prescriptive Edge Report</div>
+    <h3>Get every issue in your inbox</h3>
+    <p>One focused briefing a week on AI, loss prevention, and GTM growth for retail security leaders — and the partners who serve them.</p>
+    <a class="subscribe-btn" href="index.html">Subscribe →</a>
+  </div>
+
+  <p class="sources">Sources: 6sense, "2025 B2B Buyer Experience Report," via Sybill · Corporate Visions, "B2B Buying Behavior in 2026: 57 Stats and Five Hard Truths That Sales Can't Ignore," citing Forrester (2024), 6Sense (2025), Demandbase (2025), TrustRadius (2024), SBI (2024), Emblaze (2024), and Gartner (2025) · D&amp;D Daily, retail cybersecurity and third-party vendor-risk coverage, 2026, citing Willis cyber-insurance loss data · NRF SmartBrief / Forrester, 2026 retail tech budget coverage · Matthew Wisz, career pipeline and revenue results, 2021–2026 (ThinkLP, Solo.io, Appriss Retail, Agilence).</p>
+
+</article>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE PRESCRIPTIVE EDGE REPORT →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
