@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue 09 — Organized Retail Crime Doesn't Respect Store Walls: Why Your Data Shouldn't Either | The Prescriptive Edge Report</title>
+<meta name="description" content="A 32-state, 84-agency operation needed nine days to make 1,900 arrests. Most LP programs still budget, staff, and report store by store. Here's what the 2026 ORC data says about the gap — and what closes it. From The Prescriptive Edge Report.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *{ box-sizing:border-box; }
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+  }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--amber); }
+
+  header{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); text-decoration:none; }
+  .brand-mark span{ color:var(--amber); }
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+
+  .masthead{ padding:56px 0 28px; border-bottom:1px solid var(--line); }
+  .pillar-pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; background:rgba(77,179,168,0.14); color:var(--teal); margin-bottom:18px;
+  }
+  .masthead .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .masthead h1{ font-size:38px; line-height:1.22; color:var(--ink); margin-bottom:18px; }
+  .masthead .dek{ font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:620px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.02em; }
+
+  article{ padding:44px 0 20px; font-size:17px; line-height:1.75; color:var(--ink-dim); }
+  article p{ margin:0 0 22px 0; }
+  article h2{ color:var(--ink); font-size:25px; line-height:1.3; margin:44px 0 18px; padding-top:2px; }
+  article h2:first-child{ margin-top:0; }
+  article strong{ color:var(--ink); }
+  article em{ font-style:italic; }
+
+  .tldr{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:26px 28px; margin:0 0 12px; }
+  .tldr .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+  .tldr ul{ margin:0; padding:0 0 0 20px; }
+  .tldr li{ margin-bottom:14px; color:var(--ink-dim); }
+  .tldr li:last-child{ margin-bottom:0; }
+  .tldr li strong{ color:var(--ink); }
+
+  .stat-list{ list-style:none; margin:0 0 22px; padding:0; }
+  .stat-list li{ padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .stat-list li:first-child{ border-top:1px solid var(--line); }
+  .stat-num{ font-family:'Newsreader', serif; font-weight:700; font-size:26px; color:var(--amber); min-width:96px; }
+  .stat-text{ flex:1; min-width:220px; color:var(--ink-dim); }
+  .stat-src{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); display:block; margin-top:4px; }
+
+  .cta-box{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:8px; padding:28px 30px; margin:36px 0 30px; }
+  .cta-box p{ margin:0 0 12px; color:var(--ink-dim); }
+  .cta-box p:last-child{ margin-bottom:0; }
+  .cta-box a{ color:var(--amber); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(226,161,58,0.4); }
+
+  .signoff{ margin-top:8px; }
+  .signoff .name{ color:var(--ink); font-weight:600; }
+  .signoff .role{ color:var(--muted); font-size:15px; }
+
+  .subscribe-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px 28px; margin:48px 0 8px; }
+  .subscribe-box .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .subscribe-box h3{ font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .subscribe-box p{ color:var(--muted); font-size:15px; margin:0 0 20px; }
+  .subscribe-btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:600;
+  }
+
+  .sources{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; padding-top:24px; border-top:1px solid var(--line); margin-top:8px; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; margin-top:20px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer .fine a{ color:var(--amber); text-decoration:none; }
+
+  @media (max-width:600px){
+    .masthead{ padding:40px 0 24px; }
+    .masthead h1{ font-size:29px; }
+    article{ font-size:16px; }
+    .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-mark" href="index.html">WISZ<span>2</span> CONSULTING GROUP</a>
+    <div class="nav-group">
+      <a class="nav-link" href="archive.html">← Back Issues</a>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <span class="pillar-pill">LP Strategy</span>
+    <div class="kicker">The Prescriptive Edge Report — Issue 09</div>
+    <h1>Organized Retail Crime Doesn't Respect Store Walls — Why Your Data Shouldn't Either</h1>
+    <p class="dek">A single nine-day federal operation needed 84 agencies across 32 states to make it work. Most LP programs still budget, staff, and report one store at a time. Here's what the 2026 data says about that gap — and what closes it.</p>
+    <div class="meta-row">
+      <span>Published Tuesday, November 3, 2026</span>
+      <span>·</span>
+      <span>6–8 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="wrap">
+
+  <div class="tldr">
+    <div class="k">TLDR</div>
+    <ul>
+      <li><strong>The scale is already cross-jurisdictional.</strong> A nine-day federal operation this past August needed 84 law enforcement agencies across 32 states and 40 retail brands working together to produce 1,900+ apprehensions and arrests. That's the scale ORC already operates at.</li>
+      <li><strong>It's getting worse, not better, despite the headline number.</strong> Shoplifting incidents are down, but 40% of retailers report more ORC-related incidents and 50% report more repeat offenders year over year.</li>
+      <li><strong>Most of it never even reaches police, let alone another retailer.</strong> 63% of retailers report fewer than half of theft incidents to law enforcement at all — the data gap starts well before anyone could share it.</li>
+      <li><strong>A real case proves the signal was always there.</strong> A six-person ring hit 100+ businesses across five jurisdictions before investigators cracked it — not by watching any single store harder, but by tracking where the stolen goods resold.</li>
+    </ul>
+  </div>
+
+  <h2>The arrest number that should worry you more than it reassures you</h2>
+  <p>In August, the National Retail Federation, the Cook County State's Attorney's Office, and regional law-enforcement task forces ran the second National Organized Retail Crime Blitz: nine days, 84 law enforcement agencies, 32 states, 40 retail brands working the same operation. The result was more than 1,900 apprehensions and arrests, plus the recovery or prevention of over $2 million in retail theft losses — along with seven fencing leads, six stolen vehicles, eight weapons, and one trafficking victim recovered along the way.</p>
+  <p>Read that as a win, because it is one. But read it twice, because the scale of the coordination it took is the actual story. Eighty-four agencies. Thirty-two states. One operation, nine days, and it still only reached as far as the agencies who showed up. That's the footprint organized retail crime already operates at — and it's not an edge case. It's how the rings that matter actually work: hit a location, move product, hit another location in a different county or a different state, and keep moving before any single store's loss report catches up to the pattern.</p>
+  <p>Most LP programs aren't built at that scale. They're built at store scale, or at best at chain scale — a case management system that tracks incidents at the four walls where they happened, reported up a chain of command that rolls up by region, by district, by banner. That's not a criticism of any one LP team; it's how retail orgs are structured, for good reasons that have nothing to do with crime. But a structure built around the store is a structure an ORC ring can route around without even trying.</p>
+
+  <h2>What the data actually says</h2>
+  <p>Four numbers worth having memorized before your next ORC conversation with a CFO or a board:</p>
+  <ul class="stat-list">
+    <li><span class="stat-num">1,900+</span><span class="stat-text">apprehensions and arrests across a single nine-day operation spanning 84 law-enforcement agencies, 32 states, and 40 retail brands.<span class="stat-src">NRF, Aug. 2026 National Organized Retail Crime Blitz</span></span></li>
+    <li><span class="stat-num">40%</span><span class="stat-text">of retailers report more ORC-related incidents year over year, and 50% report more repeat offenders — even as headline shoplifting numbers decline.<span class="stat-src">NRF / LPRC / Sensormatic, 2026 survey of 66 companies (143 brands)</span></span></li>
+    <li><span class="stat-num">63%</span><span class="stat-text">of retailers report fewer than half of theft incidents to police at all, most often because the dollar amount doesn't clear a felony threshold or they don't expect real follow-through.<span class="stat-src">NRF, 2026</span></span></li>
+    <li><span class="stat-num">94%</span><span class="stat-text">of LP and security executives agree that disrupting organized theft groups requires sharing data across retailers and jurisdictions — which is a very different number from how many actually do it.<span class="stat-src">NRF, 2026</span></span></li>
+  </ul>
+  <p>Read together, these numbers describe a gap, not a mystery. The crime is already cross-jurisdictional. The appetite to fix that is nearly universal — 94% isn't a number you get on anything controversial. What's missing is the plumbing: the actual mechanism that gets a loss at Store A connected to a loss at Store B before the ring has already moved to Store C.</p>
+
+  <h2>The reframe: the ring isn't contained by your store walls, so your data can't be either</h2>
+  <p>In August, a Prince George's County, Maryland task force dismantled a retail theft ring that had hit more than 100 businesses across Maryland, Virginia, Pennsylvania, Delaware, and Washington, D.C. Six suspects, over $500,000 in losses. What actually cracked it wasn't harder surveillance at any one of those 100-plus stores — every individual theft looked like exactly what it was: one more shoplifting incident at one more store. What cracked it was investigators tracking how the stolen merchandise moved <em>after</em> each theft, including resale through social media and private transactions, and using that resale pattern to connect thefts that had no other visible link back to the same ring. The signal was never missing. It just lived in a different dataset than the one any single store was looking at.</p>
+  <p>That's not an isolated example. A Hillsborough County, Florida case this spring produced 14 arrests and $5 million in recovered merchandise from a ring that had targeted retailers and construction sites across four states. In both cases, the thing that mattered wasn't better detection inside a store — stores already detected the thefts, one at a time. What mattered was a view wide enough to see that thirty separate "random" incidents across five jurisdictions were actually one case.</p>
+  <p>This is also, not coincidentally, where vendor platforms built for exactly this kind of cross-retailer, cross-jurisdiction data sharing report their strongest results: Auror, one of the larger retail-crime-intelligence platforms, reports a 297% increase in events reported directly and securely to law enforcement through its network last year — a vendor-reported figure, not independently audited, but directionally consistent with what the Prince George's County and Hillsborough cases show by hand: once the data crosses the store wall, cases that looked unconnected turn out not to be.</p>
+  <p>The through-line across every issue of this newsletter has been the same: the winners aren't the ones with the loudest signal, they're the ones who build the system that filters to the few signals that actually matter and act on them fast. That's true of exception-based reporting catching the handful of transactions worth investigating out of millions. It's equally true of an ORC response that stops treating every store's loss report as its own self-contained incident and starts asking which of this month's "unrelated" losses are actually the same case wearing a different zip code.</p>
+
+  <h2>If you're the one deciding what your LP data sees and who it talks to</h2>
+  <p>Three shifts separate programs that close this gap from programs that stay store-contained. First, push ORC-flagged incidents — not all incidents, just the ones with ORC markers — into whatever cross-location or cross-retailer network your state or sector actually has, even if participation today is minimal. A state-level Organized Retail Crime Association, a platform like Auror, or a standing relationship with a regional task force all beat a case file that never leaves your own case management system. Second, treat the 63% underreporting figure as a question about your own program, not just the industry: of the incidents your stores flag internally, how many actually make it to police, and how many make it any further than that? Third, watch federal coordination efforts like the Combating Organized Retail Crime Act, which passed the House in May — not because legislation alone solves this, but because it's being built explicitly around the cross-jurisdictional reality your internal data should already reflect.</p>
+
+  <h2>The move this week</h2>
+  <p>Three things worth auditing in your current program, not your next budget cycle:</p>
+  <ul class="stat-list" style="list-style:decimal;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Pull your last quarter's ORC-flagged incidents</strong> and check how many were ever cross-referenced against another store, region, or chain — inside your own company, before even asking about other retailers.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Find out whether your state has an ORCA or equivalent intelligence-sharing network</strong> — and whether your company actually participates, or just pays dues and never logs in.</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">Ask one question of your LP data stack:</strong> if the same crew hit a sister store in another state next week, would anyone here know today — or only after next month's incident recap?</li>
+  </ul>
+
+  <div class="cta-box">
+    <p><strong style="color:var(--ink);">If your LP program can tell you what happened in a store but not whether it's connected to what happened three states away</strong> — or you're a solution provider trying to prove your platform is worth the data-sharing lift it asks retailers for — <a href="mailto:matt.wisz@wisz2.com">reach out</a>. Closing that gap, on either side of the table, is exactly the work Wisz2 does.</p>
+    <p>See you next Tuesday for Issue 10: The RFP Season Playbook — what retail LP buyers actually score on when procurement season starts.</p>
+  </div>
+
+  <div class="signoff">
+    <p class="name" style="margin-bottom:2px;">— Matthew Wisz</p>
+    <p class="role" style="margin:0;">Founder, Wisz2 Consulting Group</p>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="k">The Prescriptive Edge Report</div>
+    <h3>Get every issue in your inbox</h3>
+    <p>One focused briefing a week on AI, loss prevention, and GTM growth for retail security leaders — and the partners who serve them.</p>
+    <a class="subscribe-btn" href="index.html">Subscribe →</a>
+  </div>
+
+  <p class="sources">Sources: NRF, National Organized Retail Crime Blitz press release, Sept. 2026, with the Cook County State's Attorney's Office, the Cook County Regional Organized Crime Task Force, and LAORCA · NRF / LPRC / Sensormatic, "The Impact of Retail Theft &amp; Violence 2026" and accompanying press release, July 2026 (survey of 66 companies representing 143 brands and $1.7T in 2025 sales) · Prince George's County Police Department, Aug. 2026 multi-state retail theft ring case, via Penlink · Hillsborough County Sheriff's Office, Florida multi-state ORC case, May 2026, via Loss Prevention Media's monthly ORC recap · Auror, cross-retailer crime-intelligence network data, 2026 (vendor-reported) · Combating Organized Retail Crime Act (H.R. 2853), passed the U.S. House May 2026.</p>
+
+</article>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE PRESCRIPTIVE EDGE REPORT →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
