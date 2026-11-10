@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue 10 — The RFP Season Playbook | The Prescriptive Edge Report</title>
+<meta name="description" content="What retail LP buyers actually score an RFP on — and how solution providers (and MavenLP) can win procurement season without racing to the bottom on price.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+  *{ box-sizing:border-box; }
+  :root{
+    --bg:#0a0e13;
+    --panel:#11161d;
+    --panel-2:#161c25;
+    --ink:#eef1f4;
+    --ink-dim:#c3cad3;
+    --muted:#7c8896;
+    --line:rgba(238,241,244,0.11);
+    --line-strong:rgba(238,241,244,0.22);
+    --amber:#e2a13a;
+    --amber-ink:#1a1206;
+    --teal:#4db3a8;
+    --red-flag:#c65b4e;
+  }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--amber); color:var(--amber-ink); }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; font-weight:600; text-wrap:balance; margin:0; }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--amber); }
+
+  header{ border-bottom:1px solid var(--line); padding:20px 0; }
+  .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .brand-mark{ font-family:'IBM Plex Mono', monospace; font-weight:600; letter-spacing:.02em; font-size:15px; color:var(--ink); text-decoration:none; }
+  .brand-mark span{ color:var(--amber); }
+  .nav-group{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .nav-link{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--amber); text-decoration:none; }
+
+  .masthead{ padding:56px 0 28px; border-bottom:1px solid var(--line); }
+  .pillar-pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+    padding:5px 10px; border-radius:999px; background:rgba(77,179,168,0.14); color:var(--teal); margin-bottom:18px;
+  }
+  .masthead .kicker{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+  .masthead h1{ font-size:38px; line-height:1.22; color:var(--ink); margin-bottom:18px; }
+  .masthead .dek{ font-size:17px; line-height:1.6; color:var(--ink-dim); max-width:620px; }
+  .meta-row{ display:flex; gap:22px; flex-wrap:wrap; margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.02em; }
+
+  article{ padding:44px 0 20px; font-size:17px; line-height:1.75; color:var(--ink-dim); }
+  article p{ margin:0 0 22px 0; }
+  article h2{ color:var(--ink); font-size:25px; line-height:1.3; margin:44px 0 18px; padding-top:2px; }
+  article h2:first-child{ margin-top:0; }
+  article strong{ color:var(--ink); }
+  article em{ font-style:italic; }
+
+  .tldr{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:26px 28px; margin:0 0 12px; }
+  .tldr .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:16px; }
+  .tldr ul{ margin:0; padding:0 0 0 20px; }
+  .tldr li{ margin-bottom:14px; color:var(--ink-dim); }
+  .tldr li:last-child{ margin-bottom:0; }
+  .tldr li strong{ color:var(--ink); }
+
+  .stat-list{ list-style:none; margin:0 0 22px; padding:0; }
+  .stat-list li{ padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  .stat-list li:first-child{ border-top:1px solid var(--line); }
+  .stat-num{ font-family:'Newsreader', serif; font-weight:700; font-size:26px; color:var(--amber); min-width:96px; }
+  .stat-text{ flex:1; min-width:220px; color:var(--ink-dim); }
+  .stat-src{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); display:block; margin-top:4px; }
+
+  .cta-box{ background:var(--panel-2); border:1px solid var(--line-strong); border-radius:8px; padding:28px 30px; margin:36px 0 30px; }
+  .cta-box p{ margin:0 0 12px; color:var(--ink-dim); }
+  .cta-box p:last-child{ margin-bottom:0; }
+  .cta-box a{ color:var(--amber); font-weight:600; text-decoration:none; border-bottom:1px solid rgba(226,161,58,0.4); }
+
+  .signoff{ margin-top:8px; }
+  .signoff .name{ color:var(--ink); font-weight:600; }
+  .signoff .role{ color:var(--muted); font-size:15px; }
+
+  .subscribe-box{ text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:36px 28px; margin:48px 0 8px; }
+  .subscribe-box .k{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .subscribe-box h3{ font-size:22px; color:var(--ink); margin-bottom:12px; }
+  .subscribe-box p{ color:var(--muted); font-size:15px; margin:0 0 20px; }
+  .subscribe-btn{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--amber-ink); background:var(--amber); padding:12px 24px; border-radius:4px; text-decoration:none; font-weight:600;
+  }
+
+  .sources{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; padding-top:24px; border-top:1px solid var(--line); margin-top:8px; }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; margin-top:20px; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+  footer .fine{ font-size:12px; color:var(--muted); font-family:'IBM Plex Mono',monospace; }
+  footer .fine a{ color:var(--amber); text-decoration:none; }
+
+  @media (max-width:600px){
+    .masthead{ padding:40px 0 24px; }
+    .masthead h1{ font-size:29px; }
+    article{ font-size:16px; }
+    .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .footer-row{ flex-direction:column; align-items:flex-start; gap:6px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a class="brand-mark" href="index.html">WISZ<span>2</span> CONSULTING GROUP</a>
+    <div class="nav-group">
+      <a class="nav-link" href="archive.html">← Back Issues</a>
+      <a class="nav-link" href="index.html">Sign Up →</a>
+    </div>
+  </div>
+</header>
+
+<section class="masthead">
+  <div class="wrap">
+    <span class="pillar-pill" style="background:rgba(198,91,78,0.14); color:#e8998d;">GTM</span>
+    <div class="kicker">The Prescriptive Edge Report — Issue 10</div>
+    <h1>The RFP Season Playbook: What Retail LP Buyers Actually Score On</h1>
+    <p class="dek">Most RFPs get scored before a single demo happens, on a rubric the vendor never sees. Here's what the data actually says retail LP buyers weight — and the shortlist mistakes that cost solution providers the deal.</p>
+    <div class="meta-row">
+      <span>Published Tuesday, November 10, 2026</span>
+      <span>·</span>
+      <span>5–7 min read</span>
+    </div>
+  </div>
+</section>
+
+<article class="wrap">
+
+  <div class="tldr">
+    <div class="k">TLDR</div>
+    <ul>
+      <li><strong>Retail security budgets keep climbing into 2027</strong> — 57% of large retailers say theft-prevention budgets are up over the last two years, and 64% call theft a "crisis point." That's more RFPs hitting more inboxes this quarter, not fewer.</li>
+      <li><strong>94% of B2B buying groups rank their vendor shortlist before they ever talk to a seller</strong> — and the #1-ranked vendor wins roughly 80% of the time. By the time the RFP document lands in your inbox, most of the scoring logic is already set.</li>
+      <li><strong>Price is rarely the top-weighted line.</strong> Procurement's own best-practice guidance says capabilities and experience are usually weighted heaviest — and in retail LP specifically, implementation ownership and in-band references score higher than feature checklists.</li>
+      <li><strong>The providers who win RFP season</strong> aren't the ones with the longest feature list. They're the ones who show up with a measurable outcome story, references in the same vertical and store-count band, and a straight answer on false positives — before anyone asks.</li>
+    </ul>
+  </div>
+
+  <h2>It's RFP season, and most solution providers are about to lose on criteria they never saw</h2>
+  <p>November and December are when next year's retail tech budget stops being a slide in a deck and starts being a line in a contract. The $113B 2026 U.S. retail tech number isn't an abstraction right now — it's the number finance is allocating against real RFPs, this month, for work that starts in Q1.</p>
+  <p>And the pressure behind those RFPs isn't easing. A 2024 Avery Dennison-commissioned survey of 300 senior retail leaders found 64% describe theft as having hit a "crisis point," and 57% say their theft-prevention budgets are up over the prior two years — with 33% still saying the resources aren't enough. That's an industry that keeps writing bigger checks for loss prevention technology, not smaller ones. More budget pressure plus more urgency equals more RFPs — which is exactly why it's worth knowing how they actually get scored before yours lands in one.</p>
+  <p>Here's the part most solution providers miss: by the time a formal RFP goes out, the buying committee has usually already done most of the scoring in their heads. Corporate Visions, citing 6Sense's 2025 B2B Buyer Experience research, found that 94% of buying groups rank their vendor shortlist <em>before</em> contacting a single seller — and the vendor ranked #1 going in wins the deal roughly 80% of the time. The RFP isn't the contest. It's the confirmation of a contest that mostly already happened.</p>
+
+  <h2>What the scoring data actually says</h2>
+  <p>A few numbers worth knowing cold before your next RFP — whether you're answering one or writing one:</p>
+  <ul class="stat-list">
+    <li><span class="stat-num">94%</span><span class="stat-text">of B2B buying groups rank their vendor shortlist before contacting a seller; the #1-ranked vendor wins the deal roughly 80% of the time.<span class="stat-src">6Sense, via Corporate Visions, 2026</span></span></li>
+    <li><span class="stat-num">57%</span><span class="stat-text">of large retailers say theft-prevention budgets are up over the last two years — more RFPs, more budget scrutiny on each one.<span class="stat-src">Avery Dennison / Opinion Matters survey, 2024, via Chain Store Age</span></span></li>
+    <li><span class="stat-num">Not #1</span><span class="stat-text">is where price usually lands in the weighting. Procurement's own scoring guidance: "capabilities and experience are most heavily weighted... in most cases, price isn't the highest priority."<span class="stat-src">RFP360, "RFP Scoring: Best Practices for Vendor Selection"</span></span></li>
+    <li><span class="stat-num">2–2.5x</span><span class="stat-text">the scoring multiplier one retail-LP-specific RFP template assigns to outcome-measurement and implementation/change-management questions, versus a 1x baseline on generic feature questions — a single RFP-tooling vendor's own practitioner weighting, not an audited industry benchmark, but directionally consistent with the capabilities-over-price pattern above.<span class="stat-src">rfp.wiki, Retail Loss Prevention Software RFP Guide, 2026</span></span></li>
+  </ul>
+  <p>None of this is a universal, independently audited scoring formula for every retail LP RFP — nobody's published one. But three separate sources, from three different angles, point the same direction: the buyers scoring these deals care more about proof and experience than about who has the lowest line-item price or the longest feature list.</p>
+
+  <h2>The reframe: the RFP is scored on proof, not features</h2>
+  <p>Read enough retail LP RFP templates and a pattern shows up in what buyers actually ask for, beyond the standard feature matrix: how will success be measured — shrink basis points, recovery value, incident closure time, false-alarm rate, not just "does it detect theft"; who owns hardware installation, data integration, and investigator training during rollout; what references exist in your exact vertical and store-count band, not just "retail" broadly; and whether professional services, monitoring, and hardware maintenance are quoted separately or buried inside a bundled number. The same template flags the red flags buyers are trained to watch for: no references in your store-count band, a generic shrink dashboard with no POS correlation, an inability to state your own false-positive rate, and case-management tools with no mobile capture for store teams.</p>
+  <p>That matches the general procurement guidance almost exactly: publish your scoring weights before responses come in, score individually before the group discusses, and don't let the highest raw score be the automatic winner — budget and switching costs still move the decision at the end. A solution provider walking into that process with a features-first pitch is answering a question nobody on the buying committee is actually asking anymore.</p>
+  <p>This is also exactly the moment a professional-services partner earns a seat at the table — not instead of the technology decision, but inside it. MavenLP is a loss-prevention consulting practice built specifically around exception-based reporting: EBR solution evaluation, EBR program development and management, loss-prevention analytics, security-by-design initiatives, policy development, and investigative process work. That's a direct match for the two scoring categories that carry the heaviest weight in the data above — outcome measurement and implementation ownership — which happen to be the two categories most RFP responses answer worst.</p>
+  <p>MavenLP can also partner with EBR providers to ensure their customers are maximizing their ROI and using the system to its full potential — which cuts both ways this time of year. Before an RFP ever goes out, that kind of outside, vendor-neutral evaluation can tell a retailer whether they're actually missing a capability or just failing to use the one they already licensed, which changes whether the right move is a new RFP at all. And once a vendor is selected, the same partnership model helps make sure the implementation and ongoing program management — the exact criteria the scoring data says buyers weight most heavily — actually gets delivered after the contract is signed, not just promised during the pitch.</p>
+
+  <h2>If you're a solution provider walking into RFP season</h2>
+  <p>Three shifts worth making before your next response goes out, not after it's scored:</p>
+  <ul class="stat-list" style="list-style:none;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Lead with your outcome-measurement methodology, not your price.</strong> If you can't state your own false-positive rate and how you've measured shrink-bps improvement in past deployments, that's the gap buyers are screening for first.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Bring references in the exact vertical and store-count band</strong> you're bidding into. A reference customer outside that band reads as a gap, not a credential, in the scoring data above.</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">Separate software, hardware, and professional-services costs in writing before anyone asks.</strong> Bundled or hidden hardware/tag costs are the single most-cited commercial red flag in retail LP RFP scoring — and the easiest one to avoid.</li>
+  </ul>
+
+  <h2>The move this week</h2>
+  <p>Whichever side of the table you're sitting on this quarter:</p>
+  <ul class="stat-list" style="list-style:decimal;">
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Solution providers: pull your last three lost RFPs</strong> and check whether the real loss reason was a feature gap or a missing reference/implementation proof point. It's usually the second one.</li>
+    <li style="display:list-item; border:none; padding:0 0 14px 6px;"><strong style="color:var(--ink);">Write down your own answer to "how will success be measured"</strong> in writing, before a buyer ever asks — then make sure your next three proposals actually lead with it.</li>
+    <li style="display:list-item; border:none; padding:0 0 0 6px;"><strong style="color:var(--ink);">LP buyers: before the RFP goes out, get a vendor-neutral read on your current system first.</strong> If the gap is usage, not capability, the RFP you're about to write might be solving the wrong problem.</li>
+  </ul>
+
+  <div class="tldr" style="border-color:rgba(226,161,58,0.35);">
+    <div class="k">The system behind these numbers</div>
+    <ul>
+      <li><strong>$23.2M</strong> in personally-sourced B2B pipeline across two retail-technology roles (Appriss Retail and Agilence) — the track record behind the GTM playbook in this issue.</li>
+      <li><strong>17 SQLs/quarter from a single BDR</strong> at a 38% higher average deal size ($65K) than the six-rep team it replaced — proof that proof-led selling, not headcount, is what moves retail LP pipeline.</li>
+      <li><strong>$3M in pipeline and $995K in Commit-stage opportunities generated in 90 days</strong> at Solo.io, building the GTM motion and SDR team from scratch against Global 5,000 accounts.</li>
+      <li><strong>72% growth in qualified leads</strong> over the same 90-day window — the kind of outcome-measurement discipline this issue argues RFP scoring actually rewards.</li>
+    </ul>
+  </div>
+
+  <div class="cta-box">
+    <p><strong style="color:var(--ink);">If you're heading into RFP season without a clear read on what's actually being scored</strong> — or you're an LP buyer wondering whether your next RFP should be a rebuy or a tune-up of what you already have — <a href="mailto:matt.wisz@wisz2.com">reach out</a>. That diagnosis, before the document goes out, is exactly the work Wisz2 does.</p>
+    <p>See you next Tuesday for Issue 11: the ROI models that actually get LP technology funded.</p>
+  </div>
+
+  <div class="signoff">
+    <p class="name" style="margin-bottom:2px;">— Matthew Wisz</p>
+    <p class="role" style="margin:0;">Founder, Wisz2 Consulting Group</p>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="k">The Prescriptive Edge Report</div>
+    <h3>Get every issue in your inbox</h3>
+    <p>One focused briefing a week on AI, loss prevention, and GTM growth for retail security leaders — and the partners who serve them.</p>
+    <a class="subscribe-btn" href="index.html">Subscribe →</a>
+  </div>
+
+  <p class="sources">Sources: Forrester, "US Tech Forecast 2026 For Retail" · Avery Dennison / Opinion Matters retail theft survey (300 senior UK/US retail leaders, 2024), via Chain Store Age · Corporate Visions, citing 6Sense's "2025 B2B Buyer Experience Report" · RFP360, "RFP Scoring: Best Practices for Vendor Selection" · Responsive, "A Guide to RFP Evaluation Criteria" · rfp.wiki, "Retail Loss Prevention Software — Provider Reviews, Vendor Selection & RFP Guide" (a single RFP-tooling vendor's practitioner template, flagged above as not an audited industry benchmark) · MavenLP (maven-lp.com), via its LPRC Solutions Directory listing · Matthew Wisz's resume, pipeline figures across Appriss Retail, Agilence, and Solo.io.</p>
+
+</article>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="fine">© 2026 WISZ2 CONSULTING GROUP LLC</div>
+    <div class="fine"><a href="index.html">JOIN THE PRESCRIPTIVE EDGE REPORT →</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
